@@ -1,3 +1,3 @@
 # Photoify
 
-<img src="https://giphy.com/gifs/YFGMKaKPgXEJU6V1Aw/html5" style="width: 100%" />
+<img src="https://media.giphy.com/media/YFGMKaKPgXEJU6V1Aw/giphy.gif" style="width: 100%" />
