@@ -6,28 +6,29 @@ require __DIR__.'/../autoload.php';
 
 // In this file we login users.
 
-if (isset($_POST['email'], $_POST['password'])){
-    $email = trim($_POST['email']);
+
+if (isset($_POST['username'], $_POST['password'])){
+    $username = trim($_POST['username']);
     $password = trim($_POST['password']);
+//kolla om password finns
 
-    if (filter_var($email, FILTER_VALIDATE_EMAIL) && filter_var($password, FILTER_SANITIZE_STRING)) {
-
-        $statement = $pdo->query('SELECT * FROM users WHERE email = :email');
+        $statement = $pdo->prepare("SELECT * FROM users WHERE username = :username");
 
         if (!$statement){
             die(var_dump($pdo->errorInfo()));
         }
 
-        $statement->bindParam(':email', $email, PDO::PARAM_STR);
+        $statement->bindParam(':username', $username, PDO::PARAM_STR);
 
         $statement->execute();
         $user = $statement->fetch(PDO::FETCH_ASSOC);
 
+
+
         // $user_Email = $statement->fetch(PDO::FETCH_ASSOC);
         // $user_Password = $statement->fetch(PDO::FETCH_ASSOC);
 
-
-        if ($user['email'] == $email && password_verify($password, $user['password'])) {
+        if ($user['username'] == $username && password_verify($password, $user['password'])) {
 
             $_SESSION['user'] = [
                 'id' => $user['id'],
@@ -37,8 +38,7 @@ if (isset($_POST['email'], $_POST['password'])){
             redirect('/index.php');
 
         }else {
+            $_SESSION['message'] = 'This user does not exist';
             redirect('/login.php');
         }
-    }
-
 }

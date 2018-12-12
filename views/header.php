@@ -1,7 +1,14 @@
 <?php
 // Always start by loading the default application setup.
 require __DIR__.'/../app/autoload.php';
+
+if (isset($_SESSION['message'])) {
+    $message = $_SESSION['message'];
+    unset($_SESSION['message']);
+}
+// kan göra till en array med olika levels som error varning, welcome.
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

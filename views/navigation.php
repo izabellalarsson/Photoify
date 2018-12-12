@@ -15,6 +15,9 @@
       </li>
   <?php else : ?>
       <li class="nav-item">
+          <a class="nav-link" href="./app/users/logout.php">Profile</a>
+      </li>
+      <li class="nav-item">
           <a class="nav-link" href="./app/users/logout.php">Log Out</a>
       </li>
     <?php endif; ?>
