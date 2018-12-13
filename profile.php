@@ -6,7 +6,7 @@ require __DIR__.'/views/header.php';
 
 ?>
 
-<img src="<?= './app/users/avatar/'.$_SESSION['user']['avatar']?>" alt="">
+<img src="<?= './app/users/avatar/'.$_SESSION['user']['avatar']?>" alt="" class="avatar-img">
 
 <form action="app/users/avatar.php" method="post" enctype="multipart/form-data">
     <div>
