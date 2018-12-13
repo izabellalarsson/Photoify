@@ -4,16 +4,19 @@ declare(strict_types=1);
 
 require __DIR__.'/../autoload.php';
 
-// In this file we upload a avatar to the user porfile.
+// In this file we upload a avatar to the user porfile. And get it in the profile
+// print_r(pathinfo($_FILES['avatar']['name']));
 
 if (isset($_FILES['avatar'])){
   $avatar = $_FILES['avatar'];
+
+  $extention = pathinfo($avatar['name'])['extension'];
+  $fileName = pathinfo($avatar['name'])['filename'];
   $id = (int) $_SESSION['user']['id'];
-  $tmp_name = $avatar['tmp_name'];
-  $filePlace = __DIR__.'/uploads/';
+
   $fileTime = date("ymd");
-  // tar in ett unikt id till varje bild som laddas in.
-  $fileTimeSpecific = uniqid();
+  $avatarName = $fileTime.'-'.$fileName.'.'.$extention;
+
 
   if ($avatar['size'] > 2000000){
     echo 'The uploaded file exceeded the file size limit.';
@@ -30,12 +33,11 @@ if (isset($_FILES['avatar'])){
           die(var_dump($pdo->errorInfo()));
       }
 
-      $statement->bindParam(':avatar', $avatar['name'], PDO::PARAM_STR);
+      $statement->bindParam(':avatar', $avatarName, PDO::PARAM_STR);
       $statement->bindParam(':id', $id, PDO::PARAM_INT);
 
       $statement->execute();
       $user = $statement->fetch(PDO::FETCH_ASSOC);
-    // move_uploaded_file($tmp_name, $filePlace.$fileTime.'-'.$avatar['name']);
         }
   }
 }
