@@ -5,6 +5,7 @@ declare(strict_types=1);
 require __DIR__.'/../autoload.php';
 
 // In this file we upload a avatar to the user porfile. And get it in the profile
+die(var_dump(pathinfo($_FILES['avatar']['name'])));
 // print_r(pathinfo($_FILES['avatar']['name']));
 // die(var_dump(redirect('/assets')));
 if (isset($_FILES['avatar'])){
@@ -12,9 +13,10 @@ if (isset($_FILES['avatar'])){
   $extention = pathinfo($avatar['name'])['extension'];
   $fileName = pathinfo($avatar['name'])['filename'];
   $id = (int) $_SESSION['user']['id'];
-
+  $username = $_SESSION['user']['username'];
   $fileTime = date("ymd");
-  $avatarName = $fileTime.'-'.$fileName.'.'.$extention;
+
+  $avatarName = $id.'-'.$username.'.'.$extention;
 
 
   if ($avatar['size'] > 2000000){
@@ -40,6 +42,7 @@ if (isset($_FILES['avatar'])){
 
       move_uploaded_file($avatar['tmp_name'], __DIR__.'/avatar/'.$avatarName.'');
       // die(var_dump($avatar));
+      $_SESSION['message'] = 'Succes your avatar hase been uploaded';
       $_SESSION['user']['avatar'] = $avatarName;
       redirect('/profile.php');
         }

@@ -34,7 +34,8 @@ if (isset($_POST['username'], $_POST['password'])){
                 'id' => $user['id'],
                 'name' => $user['name'],
                 'email' => $user['email'],
-                'avatar' => $user['avatar']
+                'avatar' => $user['avatar'],
+                'username' => $user['username']
             ];
             redirect('/index.php');
 

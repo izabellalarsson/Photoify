@@ -5,7 +5,9 @@ require __DIR__.'/views/header.php';
 
 
 ?>
-
+<?php if (isset($message)) : ?>
+    <h1><?= $message ?></h1>
+<?php endif; ?>
 <img src="<?= './app/users/avatar/'.$_SESSION['user']['avatar']?>" alt="" class="avatar-img">
 
 <form action="app/users/avatar.php" method="post" enctype="multipart/form-data">

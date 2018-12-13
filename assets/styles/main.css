@@ -1,3 +1,7 @@
+:root {
+    --main-bg-color: #eac3cb;
+    --title-color: #104547;
+}
 * {
     box-sizing: border-box;
 }
