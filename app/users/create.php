@@ -58,7 +58,8 @@ if (isset($_POST['email'], $_POST['password'], $_POST['password2'], $_POST['user
                     'name' => $fullname,
                     'email' => $email
                 ];
-                redirect('/index.php');
+                $_SESSION['message'] = 'Log in on your new accont';
+                redirect('/login.php');
 
 
             } else {

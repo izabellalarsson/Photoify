@@ -6,9 +6,9 @@ require __DIR__.'/../autoload.php';
 
 // In this file we upload a avatar to the user porfile.
 
-// die(var_dump($_FILES));
 if (isset($_FILES['avatar'])){
   $avatar = $_FILES['avatar'];
+  $id = (int) $_SESSION['user']['id'];
   $tmp_name = $avatar['tmp_name'];
   $filePlace = __DIR__.'/uploads/';
   $fileTime = date("ymd");
@@ -22,17 +22,20 @@ if (isset($_FILES['avatar'])){
     echo 'The image file type is not allowed.';
   }
   else {
+      if (isset($_SESSION['user']['id'])) {
 
-      $statement = $pdo->prepare("UPDATE users SET avatar = :avatar");
+      $statement = $pdo->prepare("UPDATE users SET avatar = :avatar WHERE id = :id");
 
       if (!$statement){
           die(var_dump($pdo->errorInfo()));
       }
 
-      $statement->bindParam(':avatar', $avatar, PDO::PARAM_STR);
+      $statement->bindParam(':avatar', $avatar['name'], PDO::PARAM_STR);
+      $statement->bindParam(':id', $id, PDO::PARAM_INT);
 
       $statement->execute();
       $user = $statement->fetch(PDO::FETCH_ASSOC);
     // move_uploaded_file($tmp_name, $filePlace.$fileTime.'-'.$avatar['name']);
+        }
   }
 }
