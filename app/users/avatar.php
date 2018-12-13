@@ -6,10 +6,9 @@ require __DIR__.'/../autoload.php';
 
 // In this file we upload a avatar to the user porfile. And get it in the profile
 // print_r(pathinfo($_FILES['avatar']['name']));
-
+// die(var_dump(redirect('/assets')));
 if (isset($_FILES['avatar'])){
   $avatar = $_FILES['avatar'];
-
   $extention = pathinfo($avatar['name'])['extension'];
   $fileName = pathinfo($avatar['name'])['filename'];
   $id = (int) $_SESSION['user']['id'];
@@ -24,7 +23,7 @@ if (isset($_FILES['avatar'])){
   elseif ($avatar['type'] != 'image/png') {
     echo 'The image file type is not allowed.';
   }
-  else {
+  elseif (filter_var($avatar['name'], FILTER_SANITIZE_STRING)) {
       if (isset($_SESSION['user']['id'])) {
 
       $statement = $pdo->prepare("UPDATE users SET avatar = :avatar WHERE id = :id");
@@ -38,6 +37,11 @@ if (isset($_FILES['avatar'])){
 
       $statement->execute();
       $user = $statement->fetch(PDO::FETCH_ASSOC);
+
+      move_uploaded_file($avatar['tmp_name'], __DIR__.'/avatar/'.$avatarName.'');
+      // die(var_dump($avatar));
+      $_SESSION['user']['avatar'] = $avatarName;
+      redirect('/profile.php');
         }
   }
 }

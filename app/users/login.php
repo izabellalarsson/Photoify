@@ -33,7 +33,8 @@ if (isset($_POST['username'], $_POST['password'])){
             $_SESSION['user'] = [
                 'id' => $user['id'],
                 'name' => $user['name'],
-                'email' => $user['email']
+                'email' => $user['email'],
+                'avatar' => $user['avatar']
             ];
             redirect('/index.php');
 

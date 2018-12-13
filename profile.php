@@ -1,7 +1,12 @@
 <?php
 require __DIR__.'/views/header.php';
+
+// die(var_dump($_SESSION['user']['avatar']));
+
+
 ?>
 
+<img src="<?= './app/users/avatar/'.$_SESSION['user']['avatar']?>" alt="">
 
 <form action="app/users/avatar.php" method="post" enctype="multipart/form-data">
     <div>
@@ -10,7 +15,6 @@ require __DIR__.'/views/header.php';
     </div>
 
     <button type="submit" name="upload">Upload</button>
-
 </form>
 
 <?php
