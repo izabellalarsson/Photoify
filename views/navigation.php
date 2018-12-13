@@ -1,3 +1,11 @@
+<div class="signout">
+<h1>Are you sure to log out?</h1>
+<a class="nav-link logout" href="./app/users/logout.php">Log Out</a>
+<a class="nav-link logout" href="index.php">return</a>
+</div>
+
+
+
 <nav class="navbar">
   <a class="navbar-brand" href="#"><?php echo $config['title']; ?></a>
 
@@ -15,10 +23,11 @@
       </li>
   <?php else : ?>
       <li class="nav-item">
-          <a class="nav-link" href="./app/users/logout.php">Profile</a>
+          <a class="nav-link" href="./profile.php">Posts</a>
       </li>
       <li class="nav-item">
-          <a class="nav-link" href="./app/users/logout.php">Log Out</a>
+          <input type="submit" class="nav-link logout" value="logout" />
+          <!-- <button type="button" name="button" class="nav-link logout">Log Out</button> -->
       </li>
     <?php endif; ?>
   </ul><!-- /navbar-nav -->

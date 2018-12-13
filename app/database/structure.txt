@@ -1,0 +1,28 @@
+CREATE TABLE IF NOT EXISTS "users" (
+`id` INTEGER PRIMARY KEY AUTOINCREMENT,
+`email` TEXT NOT NULL UNIQUE,
+`name` TEXT NOT NULL,
+`username` TEXT NOT NULL UNIQUE,
+`password` TEXT NOT NULL,
+`avatar` TEXT DEFAULT "default.jpg",
+`profile_bio` TEXT,
+`created_at` DATETIME NOT NULL DEFAULT (datetime(CURRENT_TIMESTAMP))
+);
+
+
+CREATE TABLE IF NOT EXISTS "post" (
+`id` INTEGER PRIMARY KEY AUTOINCREMENT,
+`user_id` TEXT NOT NULL,
+`image` BLOB NOT NULL UNIQUE,
+`description` TEXT NOT NULL,
+`created` DATETIME NOT NULL DEFAULT (datetime(CURRENT_TIMESTAMP))
+);
+
+
+Inte klar med. Oklart ännu vad jag behöver här..
+
+CREATE TABLE `likes` (
+	`user_id`	INTEGER,
+	`likes`	INTEGER,
+	`dislikes`	INTEGER
+);

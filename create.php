@@ -15,7 +15,6 @@ require __DIR__.'/views/header.php';
     <label for="email">Email</label>
     <input class="form-control" type="email" name="email" placeholder="francis@darjeeling.com" required>
 
-
     <label for="password">Password</label>
     <input class="form-control" type="password" name="password" required>
     <small class="form-text text-muted">Please provide the your password (passphrase).</small>

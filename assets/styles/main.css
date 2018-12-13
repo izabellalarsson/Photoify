@@ -1,3 +1,20 @@
+* {
+  box-sizing: border-box;
+}
 body {
   background-color: aquamarine;
+  margin: 0;
+  padding: 0;
+}
+
+.signout {
+  background-color: rgba(167, 125, 193, 0.74);
+  position: absolute;
+  display: none;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
