@@ -1,6 +1,7 @@
 <?php
 require __DIR__.'/views/header.php';
-if (!isset($_SESSION['email'])) {
+
+if (!isset($_SESSION['user']['email'])) {
     redirect('/login.php');
 }
 ?>

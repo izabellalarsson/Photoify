@@ -9,7 +9,6 @@ require __DIR__.'/../autoload.php';
 // print_r(pathinfo($_FILES['avatar']['name']));
 // die(var_dump(redirect('/assets')));
 
-
     if (isset($_POST['password'])){
         // fixing for the avatar
         $avatar = $_FILES['avatar'];
