@@ -30,12 +30,6 @@ body {
     flex-direction: column;
 }
 
-.avatar-img-settings {
-    width: 50px;
-    height: 50px;
-    background-color: #fff;
-}
-
 .avatar-img {
     width: 100px;
     height: 100px;

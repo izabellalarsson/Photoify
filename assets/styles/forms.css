@@ -1,18 +1,34 @@
-form {
-    background-color: #fff;
+.settings {
+    background-image: linear-gradient(
+        to top,
+        rgba(255, 255, 255),
+        rgb(246, 246, 246)
+    );
     padding: 5%;
-    border-radius: 10%;
-    width: 90%;
+    border-radius: 2%;
+    width: 95%;
+    margin: 10% 0;
+}
+.settings form {
+    width: 100%;
+    padding: 0;
+    margin: 0;
 }
 
 input {
     border: none;
     border-bottom: 1px solid #000;
-    margin: 5%;
+    margin: 5% 0;
+    font-size: 1.2em;
+}
+
+.settings .avatar-upload input {
+    margin: 10% 0;
 }
 
 textarea {
     resize: none;
+    font-size: 1.2em;
 }
 
 :focus {
@@ -25,11 +41,19 @@ textarea {
 
 .avatar-show {
     display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
-.avatar-show .avatar-picture {
+.avatar-img-settings {
+    width: 8em;
+    height: 8em;
+}
+
+.avatar-show .avatar-picture img {
+    border-radius: 100%;
 }
 .avatar-show .avatar-upload {
-    align-self: center;
-    margin-left: 10%;
+    text-align: center;
 }
