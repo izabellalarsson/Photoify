@@ -6,7 +6,7 @@
     box-sizing: border-box;
 }
 body {
-    background-color: aquamarine;
+    background-color: var(--title-color);
     margin: 0;
     padding: 0;
 }
@@ -26,19 +26,47 @@ body {
 .avatar-img-settings {
     width: 50px;
     height: 50px;
+    background-color: #fff;
 }
 
 .navbar {
     width: 100%;
+    bottom: 0;
+    position: absolute;
+    background-color: var(--title-color);
+    border: 1px solid #fff;
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+}
 
-    top: 0;
-    background-color: var(--main-bg-color);
-    margin-bottom: 40px;
+.navbar a {
+    color: var(--main-bg-color);
+    font-family: Helvetica;
+    font-size: 12pt;
+    text-decoration: none;
+}
+.navbar-brand {
+    margin: 0;
 }
 
 .navbar-nav {
     list-style: none;
     display: flex;
+    margin: 0;
+    padding: 0;
+}
+.nav-item {
+    margin: 10px 2px;
+}
+
+.nav-item input {
+    border: 0;
+    background-color: rgba(255, 255, 255, 0);
+    color: var(--main-bg-color);
+    font-family: Helvetica;
+    font-size: 12pt;
+    padding: 0;
 }
 
 .settings {

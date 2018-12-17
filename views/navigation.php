@@ -24,13 +24,15 @@
   <?php else : ?>
       <li class="nav-item">
           <a class="nav-link" href="/profile.php">Profile</a>
-          <ul>
-              <li><a class="nav-link" href="/posts.php">Posts</a></li>
-              <li><a class="nav-link" href="/settings.php">Settings</a></li>
-          </ul>
       </li>
       <li class="nav-item">
-          <input type="submit" class="nav-link logout" value="logout" />
+          <a class="nav-link" href="/posts.php">Posts</a>
+      </li>
+      <li class="nav-item">
+          <a class="nav-link" href="/settings.php">Settings</a>
+      </li>
+      <li class="nav-item">
+          <input type="submit" class="nav-link logout" value="Logout" />
           <!-- <button type="button" name="button" class="nav-link logout">Log Out</button> -->
       </li>
     <?php endif; ?>

@@ -8,7 +8,7 @@ require __DIR__.'/../autoload.php';
 // die(var_dump(pathinfo($_FILES['avatar']['name'])));
 // print_r(pathinfo($_FILES['avatar']['name']));
 // die(var_dump(redirect('/assets')));
-if (isset($_POST['password'])){
+if (isset($_FILES['avatar'])){
   $avatar = $_FILES['avatar'];
   $extention = pathinfo($avatar['name'])['extension'];
   $fileName = pathinfo($avatar['name'])['filename'];
