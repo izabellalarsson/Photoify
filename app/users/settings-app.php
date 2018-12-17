@@ -35,13 +35,12 @@ if (isset($_POST['password'], $_POST['email'])){
             $fileTime = date("ymd");
             $avatarName = $id.'-'.$username.'.'.$extention;
 
-            if (isset($_POST['profile_bio'])){
-                        $profileBio = trim(filter_var($_POST['profile_bio'], FILTER_SANITIZE_STRING));
-                        echo $profileBio;
-                }else {
-                    die(var_dump());
-                    $profileBio = $_SESSION['user']['profile_bio'];
-                    echo $profileBio;
+            if ($_POST['profile_bio'] == ''){
+                $profileBio = $_SESSION['user']['profile_bio'];
+
+                }
+                else {
+                    $profileBio = trim(filter_var($_POST['profile_bio'], FILTER_SANITIZE_STRING));
                 }
 
             if (isset($_SESSION['user']['id'])) {
@@ -60,9 +59,10 @@ if (isset($_POST['password'], $_POST['email'])){
                 $user = $statement->fetch(PDO::FETCH_ASSOC);
 
                 move_uploaded_file($_FILES['avatar']['tmp_name'], __DIR__.'/avatar/'.$avatarName.'');
-                $_SESSION['message'] = 'Succes your avatar hase been uploaded';
+                $_SESSION['message'] = 'Your changes has been updated';
                 $_SESSION['user']['avatar'] = $avatarName;
                 $_SESSION['user']['profile_bio'] = $profileBio;
+                redirect('/settings.php');
     }
 
             // if (isset($_FILES['avatar'])){

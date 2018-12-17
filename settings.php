@@ -28,7 +28,7 @@ if (!isset($_SESSION['user']['email'])) {
     <input type="text" name="username" id="username" placeholder="<?= $_SESSION['user']['username']; ?>">
     <label for="avatar">Bio</label>
     <!-- if isset shorthand -->
-    <textarea type="text" name="profile_bio" id="profile_bio" placeholder="<?= $_SESSION['user']['profile_bio'] ?? ' ' ; ?>">
+    <textarea type="text" name="profile_bio" id="profile_bio" placeholder="<?= $_SESSION['user']['profile_bio'] ?? ' ' ; ?>" value="<?= $_SESSION['user']['profile_bio']; ?>">
 </textarea>
 <label for="avatar">Confirm your changes</label>
 <label for="email">Email</label>
