@@ -5,9 +5,17 @@
 </div>
 
 
+<div class="brand">
+    <a class="navbar-brand" href="#"><?php echo $config['title']; ?></a>
+</div>
+<div class="toggle">
+    <i class="fas fa-bars"></i>
+</div>
+<div class="toggle-close">
+    <i class="fas fa-times"></i>
+</div>
 
 <nav class="navbar">
-  <a class="navbar-brand" href="#"><?php echo $config['title']; ?></a>
 
   <ul class="navbar-nav">
       <li class="nav-item">

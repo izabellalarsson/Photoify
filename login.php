@@ -9,13 +9,11 @@
         <div class="form-group">
             <label for="text">Username</label>
             <input class="form-control" type="text" name="username" placeholder="francis@darjeeling.com" required>
-            <small class="form-text text-muted">Please provide the your email address.</small>
         </div><!-- /form-group -->
 
         <div class="form-group">
             <label for="password">Password</label>
             <input class="form-control" type="password" name="password" required>
-            <small class="form-text text-muted">Please provide the your password (passphrase).</small>
         </div><!-- /form-group -->
 
         <button type="submit" class="btn btn-primary">Login</button>

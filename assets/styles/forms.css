@@ -1,0 +1,35 @@
+form {
+    background-color: #fff;
+    padding: 5%;
+    border-radius: 10%;
+    width: 90%;
+}
+
+input {
+    border: none;
+    border-bottom: 1px solid #000;
+    margin: 5%;
+}
+
+textarea {
+    resize: none;
+}
+
+:focus {
+    outline: none;
+}
+
+.avatar-show input {
+    border: none;
+}
+
+.avatar-show {
+    display: flex;
+}
+
+.avatar-show .avatar-picture {
+}
+.avatar-show .avatar-upload {
+    align-self: center;
+    margin-left: 10%;
+}
