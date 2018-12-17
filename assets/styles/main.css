@@ -23,7 +23,25 @@ body {
     flex-direction: column;
 }
 
-.avatar-img {
-    width: 100px;
-    height: 100px;
+.avatar-img-settings {
+    width: 50px;
+    height: 50px;
+}
+
+.navbar {
+    width: 100%;
+
+    top: 0;
+    background-color: var(--main-bg-color);
+    margin-bottom: 40px;
+}
+
+.navbar-nav {
+    list-style: none;
+    display: flex;
+}
+
+.settings {
+    display: flex;
+    flex-direction: column;
 }
