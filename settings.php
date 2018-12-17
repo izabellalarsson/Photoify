@@ -20,7 +20,7 @@ if (!isset($_SESSION['user']['email'])) {
 <form action="./../app/users/settings-app.php" method="post" enctype="multipart/form-data" class="settings">
     <div>
         <label for="avatar">Choose a avatar to upload</label>
-        <input type="file" accept=".png" name="avatar" id="avatar" required>
+        <input type="file" accept=".jpg" name="avatar" id="avatar">
     </div>
     <label for="avatar">Name</label>
     <input type="text" name="name" id="name" placeholder="<?= $_SESSION['user']['name']; ?>">
@@ -30,8 +30,10 @@ if (!isset($_SESSION['user']['email'])) {
     <!-- if isset shorthand -->
     <textarea type="text" name="profile_bio" id="profile_bio" placeholder="<?= $_SESSION['user']['profile_bio'] ?? ' ' ; ?>">
 </textarea>
-<label for="avatar">Confirm with password</label>
-<input type="text" name="username" id="username" placeholder="<?= $_SESSION['user']['username']; ?>">
+<label for="avatar">Confirm your changes</label>
+<label for="email">Email</label>
+<input class="form-control" type="email" name="email" placeholder="francis@darjeeling.com" required>
+<input type="password" name="password" id="password" required>
     <button type="submit" name="upload">Upload</button>
 
 </form>

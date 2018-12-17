@@ -15,7 +15,6 @@ if (isset($_POST['password'])){
   $id = (int) $_SESSION['user']['id'];
   $username = $_SESSION['user']['username'];
   $fileTime = date("ymd");
-  $profileBio = trim(filter_var($_POST['profile_bio'], FILTER_SANITIZE_STRING));
 
   $avatarName = $id.'-'.$username.'.'.$extention;
 
@@ -29,7 +28,7 @@ if (isset($_POST['password'])){
   elseif (filter_var($avatar['name'], FILTER_SANITIZE_STRING)) {
       if (isset($_SESSION['user']['id'])) {
 
-      $statement = $pdo->prepare("UPDATE users SET avatar = :avatar, profile_bio = :profile_bio WHERE id = :id");
+      $statement = $pdo->prepare("UPDATE users SET avatar = :avatar WHERE id = :id");
 
       if (!$statement){
           die(var_dump($pdo->errorInfo()));
@@ -46,7 +45,7 @@ if (isset($_POST['password'])){
       // die(var_dump($avatar));
       $_SESSION['message'] = 'Succes your avatar hase been uploaded';
       $_SESSION['user']['avatar'] = $avatarName;
-      $_SESSION['user']['profile_bio'] = $profileBio;
+      // $_SESSION['user']['profile_bio'] = $profileBio;
       redirect('/profile.php');
         }
   }
