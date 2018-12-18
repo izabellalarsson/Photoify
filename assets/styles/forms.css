@@ -5,7 +5,7 @@
         rgb(246, 246, 246)
     );
     padding: 5%;
-    border-radius: 2%;
+    border-radius: 10px;
     width: 95%;
     margin: 10% 0;
 }
@@ -13,21 +13,36 @@
     width: 100%;
     padding: 0;
     margin: 0;
+    display: flex;
+    flex-direction: column;
 }
 
 input {
     border: none;
     border-bottom: 1px solid #000;
     margin: 5% 0;
-    font-size: 1.2em;
+    font-size: 1.1em;
 }
 
 .settings .avatar-upload input {
-    margin: 10% 0;
+    margin: 5% 0;
+    font-size: 1em;
 }
 
 textarea {
     resize: none;
+    font-size: 1.2em;
+    border: none;
+    border-bottom: 1px solid #000;
+}
+
+.settings .confirm {
+    margin: 10% 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.settings .confirm label {
     font-size: 1.2em;
 }
 
@@ -56,4 +71,59 @@ textarea {
 }
 .avatar-show .avatar-upload {
     text-align: center;
+}
+
+.settings button {
+    align-self: flex-end;
+    background-color: #104547;
+    color: #fff;
+    font-size: 1.2em;
+    border-radius: 10%;
+    padding: 3%;
+    width: 30%;
+}
+
+/* Settings form  */
+.confirm-w-password {
+    display: none;
+}
+.confirm-w-password.show {
+    display: block;
+}
+
+.confirm-new-password {
+    display: none;
+}
+.confirm-new-password.show {
+    display: block;
+}
+
+.settings .change-email,
+.settings .change-password {
+    display: flex;
+    flex-direction: column;
+}
+.settings .change-email .change-email-button,
+.settings .change-password .change-password-button {
+    display: flex;
+    justify-content: center;
+}
+.settings .change-email button,
+.settings .change-password button {
+    background-color: #104547;
+    color: #fff;
+    font-size: 1em;
+    border-radius: 4px;
+    padding: 2%;
+    width: 30%;
+    display: none;
+}
+
+.settings .change-email button.show,
+.settings .change-password button.show {
+    display: block;
+}
+
+.settings hr {
+    border: 2px solid #104547;
 }

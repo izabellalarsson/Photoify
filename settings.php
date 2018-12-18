@@ -34,12 +34,37 @@ if (!isset($_SESSION['user']['email'])) {
         <input type="text" name="username" id="username" placeholder="<?= $_SESSION['user']['username']; ?>">
         <label for="avatar">Bio</label>
         <!-- if isset shorthand -->
-        <textarea type="text" name="profile_bio" id="profile_bio" placeholder="<?= $_SESSION['user']['profile_bio'] ?? 'Write a bio'; ?>" value="<?= $_SESSION['user']['profile_bio']; ?>"></textarea>
-        <label for="avatar">Confirm your changes</label>
-        <label for="email">Email</label>
-        <input class="form-control" type="email" name="email" placeholder="<?= $_SESSION['user']['email']; ?>" required>
-        <input type="password" name="password" id="password" placeholder="password" required>
-        <button type="submit" name="upload">Upload</button>
+        <textarea type="text" name="profile_bio" rows="1" id="profile_bio" placeholder="<?= $_SESSION['user']['profile_bio'] ?? 'Write a bio'; ?>" value="<?= $_SESSION['user']['profile_bio']; ?>"></textarea>
+        <div class="confirm">
+            <label for="avatar">Confirm your changes</label>
+            <input class="form-control" type="email" name="email" placeholder="<?= $_SESSION['user']['email']; ?>" required>
+            <input type="password" name="password" id="password" placeholder="password" required>
+            <button type="submit" name="upload">Update</button>
+        </div>
+    </form>
+    <br><hr><br>
+    <form action="./../app/users/settings-email-app.php" method="post" class="settings-email">
+        <div class="change-email">
+            <label for="email">Email</label>
+            <input type="text" name="email" id="email" class="email-default" placeholder="<?= $_SESSION['user']['email']; ?>">
+            <input type="password-confirm" name="password-confirm" id="password-confirm" class="confirm-w-password" placeholder="Confirm Password">
+        <div class="change-email-button">
+            <button type="submit" name="cancel">Cancel</button>
+            <button type="submit" name="save">Save</button>
+        </div>
+        <br>
+        </div>
+        </form>
+        <form action="./../app/users/settings-password-app.php" method="post" class="settings-password">
+        <div class="change-password">
+            <label for="password-change">Password</label>
+            <input type="text" name="password-change" id="password-change" class="password-default" placeholder="Change Password">
+            <input type="password-new" name="password-new" id="password-new" class="confirm-new-password" placeholder="New Password">
+        <div class="change-password-button">
+            <button type="submit" name="cancel">Cancel</button>
+            <button type="submit" name="save">Save</button>
+        </div>
+        </div>
 
     </form>
 </section>

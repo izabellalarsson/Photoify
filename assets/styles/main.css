@@ -37,7 +37,7 @@ body {
 
 .navbar {
     width: 100%;
-    position: absolute;
+    position: fixed;
     background-color: rgb(255, 255, 255);
     /* border: 1px solid #fff; */
     display: none;
@@ -69,12 +69,15 @@ body {
 .toggle {
     font-size: 3em;
     align-self: flex-end;
-    position: absolute;
+    position: fixed;
     right: 10px;
     top: 0;
     z-index: 1;
     color: var(--main-bg-color);
     display: block;
+    background-color: rgba(16, 69, 71, 0.8);
+    padding: 2px;
+    padding-left: 10px;
 }
 
 .toggle-close {
@@ -87,7 +90,7 @@ body {
 .toggle-close.active {
     font-size: 3em;
     align-self: flex-end;
-    position: absolute;
+    position: fixed;
     right: 10px;
     top: 0;
     z-index: 1;

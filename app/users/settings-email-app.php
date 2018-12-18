@@ -12,7 +12,7 @@ require __DIR__.'/../autoload.php';
 
 // Updating settings for profilepic, bio, name and username.
 
-if (isset($_POST['password'], $_POST['email'])){
+if (isset($_POST['email'], $_POST['password-confirm'])){
     if ($_POST['email'] == $_SESSION['user']['email']) {
 
         $password = $_POST['password'];
