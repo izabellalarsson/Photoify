@@ -11,8 +11,11 @@ require __DIR__.'/views/header.php';
 <h2>About me</h2>
 <p><?= $_SESSION['user']['profile_bio'] ?? ' ' ; ?></p>
 
-<form action="./../app/users/settings-app.php" method="post" enctype="multipart/form-data" class="settings-form">
-    <input type="file" accept=".jpg" name="post" class="post">
+<form action="./../app/posts/store.php" method="post" enctype="multipart/form-data" class="settings-form">
+    <input type="file" accept=".jpg" name="image" class="image">
+    <label for="post">Write a description</label>
+    <input type="text" name="description" class="description">
+    <button type="submit" name="button">Upload post</button>
 </form>
 
 
