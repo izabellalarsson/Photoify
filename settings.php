@@ -14,7 +14,7 @@ if (!isset($_SESSION['user']['email'])) {
         <h3><?= $message ?></h3>
 
     <?php endif; ?>
-    <form action="./../app/users/settings-app.php" method="post" enctype="multipart/form-data" class="settings">
+    <form action="./../app/users/settings-app.php" method="post" enctype="multipart/form-data" class="settings-form">
         <div class="avatar-show">
             <div class="avatar-picture">
                 <img src="<?= './app/users/avatar/'.$_SESSION['user']['avatar']?>" alt="" class="avatar-img-settings">
