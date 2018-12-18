@@ -74,6 +74,7 @@ if (isset($_POST['password'], $_POST['email'])){
                 $_SESSION['user']['avatar'] = $avatarName;
                 $_SESSION['user']['profile_bio'] = $profileBio;
                 redirect('/settings.php');
+                die;
             }
 
             // if (isset($_FILES['avatar'])){

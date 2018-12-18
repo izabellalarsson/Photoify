@@ -1,12 +1,12 @@
 'use strict';
 
 const email = document.querySelector('.email-default');
-const emaildiv = document.querySelector('.change-email');
-console.log(emaildiv);
+
 const emailTwo = document.querySelector('.confirm-w-password');
 const emailConfirmButton = document.querySelectorAll(
     '.settings .change-email button'
 );
+
 const password = document.querySelector('.password-default');
 const passwordNew = document.querySelector('.confirm-new-password');
 const passwordConfirmButton = document.querySelectorAll(
@@ -14,16 +14,9 @@ const passwordConfirmButton = document.querySelectorAll(
 );
 
 email.addEventListener('click', () => {
-    emailTwo.classList.add('show');
+    emailTwo.classList.toggle('show');
     emailConfirmButton.forEach(button => {
-        button.classList.add('show');
-    });
-});
-
-emaildiv.addEventListener('blur', () => {
-    emailTwo.classList.remove('show');
-    emailConfirmButton.forEach(button => {
-        button.classList.remove('show');
+        button.classList.toggle('show');
     });
 });
 

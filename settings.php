@@ -8,7 +8,7 @@ if (!isset($_SESSION['user']['email'])) {
 // die(var_dump($_SESSION['user']['profile_bio']));
 ?>
 
-<section class="settings">
+<article class="settings">
     <h2>Edit profile</h2>
     <?php if (isset($message)) : ?>
         <h3><?= $message ?></h3>
@@ -37,7 +37,7 @@ if (!isset($_SESSION['user']['email'])) {
         <textarea type="text" name="profile_bio" rows="1" id="profile_bio" placeholder="<?= $_SESSION['user']['profile_bio'] ?? 'Write a bio'; ?>" value="<?= $_SESSION['user']['profile_bio']; ?>"></textarea>
         <div class="confirm">
             <label for="avatar">Confirm your changes</label>
-            <input class="form-control" type="email" name="email" placeholder="<?= $_SESSION['user']['email']; ?>" required>
+            <input class="form-control" type="email" name="email" placeholder="<?= $_SESSION['user']['email']; ?>" value="<?= $_SESSION['user']['email']; ?>" required>
             <input type="password" name="password" id="password" placeholder="password" required>
             <button type="submit" name="upload">Update</button>
         </div>
@@ -67,7 +67,7 @@ if (!isset($_SESSION['user']['email'])) {
         </div>
 
     </form>
-</section>
+</article>
 
 <?php
 require __DIR__.'/views/footer.php';
