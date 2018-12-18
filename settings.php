@@ -47,7 +47,7 @@ if (!isset($_SESSION['user']['email'])) {
         <div class="change-email">
             <label for="email">Email</label>
             <input type="text" name="email" id="email" class="email-default" placeholder="<?= $_SESSION['user']['email']; ?>">
-            <input type="password-confirm" name="password-confirm" id="password-confirm" class="confirm-w-password" placeholder="Confirm Password">
+            <input type="password" name="password-confirm" id="password-confirm" class="confirm-w-password" placeholder="Confirm Password">
         <div class="change-email-button">
             <button type="submit" name="cancel">Cancel</button>
             <button type="submit" name="save">Save</button>
@@ -57,9 +57,9 @@ if (!isset($_SESSION['user']['email'])) {
         </form>
         <form action="./../app/users/settings-password-app.php" method="post" class="settings-password">
         <div class="change-password">
-            <label for="password-change">Password</label>
-            <input type="text" name="password-change" id="password-change" class="password-default" placeholder="Change Password">
-            <input type="password-new" name="password-new" id="password-new" class="confirm-new-password" placeholder="New Password">
+            <label for="password-old">Password</label>
+            <input type="password" name="password-old" id="password-old" class="password-default" placeholder="Change Password">
+            <input type="password" name="password-new" id="password-new" class="confirm-new-password" placeholder="New Password">
         <div class="change-password-button">
             <button type="submit" name="cancel">Cancel</button>
             <button type="submit" name="save">Save</button>

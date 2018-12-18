@@ -56,7 +56,7 @@ if (isset($_POST['password'], $_POST['email'])){
 
             if (isset($_SESSION['user']['id'])) {
 
-                $statement = $pdo->prepare("UPDATE users SET avatar = :avatar, profile_bio = :profile_bio, email = :email WHERE id = :id");
+                $statement = $pdo->prepare("UPDATE users SET avatar = :avatar, profile_bio = :profile_bio WHERE id = :id");
 
                 if (!$statement){
                     die(var_dump($pdo->errorInfo()));
@@ -135,7 +135,13 @@ if (isset($_POST['password'], $_POST['email'])){
     //     $_SESSION['message'] = 'you have to confirm';
     //     redirect('/settings.php');
     // }
+}else {
+    $_SESSION['message'] = 'wrong password';
+    redirect('/settings.php');
 }
+}else {
+    $_SESSION['message'] = 'wrong email';
+    redirect('/settings.php');
 }
 }
 
