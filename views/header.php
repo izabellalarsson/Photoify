@@ -6,6 +6,10 @@ if (isset($_SESSION['message'])) {
     $message = $_SESSION['message'];
     unset($_SESSION['message']);
 }
+
+if (isset($_SESSION['post'])){
+    $images = $_SESSION['post'];
+}
 // kan göra till en array med olika levels som error varning, welcome.
 ?>
 

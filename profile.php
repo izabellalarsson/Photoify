@@ -2,7 +2,11 @@
 require __DIR__.'/views/header.php';
 
 // die(var_dump($_SESSION['user']['avatar']));
-
+// die(var_dump($_SESSION['post']['image']));
+// die(var_dump($images['image']));
+foreach ($images['image'] as $image) {
+    echo $image;
+}
 ?>
 <?php if (isset($message)) : ?>
     <h1><?= $message ?></h1>
@@ -18,6 +22,9 @@ require __DIR__.'/views/header.php';
     <button type="submit" name="button">Upload post</button>
 </form>
 
+<?php foreach($images['image'] as $image): ?>
+    <h3><?= $image; ?></h3>
+<?php endforeach; ?>
 
 <?php
 require __DIR__.'/views/footer.php';
