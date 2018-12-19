@@ -26,8 +26,9 @@ if (isset($_POST['description'], $_FILES['image'])) {
                 $fileName = pathinfo($image['name'])['filename'];
                 $username = $_SESSION['user']['username'];
                 $fileTime = date("ymd:H:i");
-                $userFolder = $id.'-'.$username;
-                $imageName = $fileTime.'-'.$id.'-'.$username.'.'.$extention;
+                $userFolder = $id;
+                $imageName = $id.'-'.$fileTime.'-'.$username.'.'.$extention;
+                // $imageName = $id.'.'.$extention;
                 // die(var_dump($imageName));
 
                 $statement = $pdo->prepare("INSERT INTO posts(image, description, user_id) VALUES(:image, :description, :user_id)");

@@ -17,15 +17,25 @@ if ($_SESSION['user']['id']) {
   $statement->execute();
   $posts = $statement->fetchAll(PDO::FETCH_ASSOC);
 
-foreach ($posts as $post) {
-  $postImages = $post['image']
-}
-die(var_dump($posts[0]['image']));
-  $_SESSION['post'] = [
-    'image' => $posts['image'],
-    'description' => $posts['description'],
-    'created' => $posts['created'],
-  ];
+// die(var_dump($posts));
+// för att få ut värderna från min fetch all.$
+die(var_dump($posts));
+;
+
+$_SESSION['userpost'] = $posts;
+// for($i = 0; $i < count($posts); ++$i){
+// echo $posts[$i]['image'];
+// }
+// foreach ($posts as $post) {
+//   die(var_dump($post['image']));
+// }
+
+// $_SESSION['posts'] = $posts;
+  // $_SESSION['post'] = [
+  //   'image' => $posts['image'],
+  //   'description' => $posts['description'],
+  //   'created' => $posts['created'],
+  // ];
 
   // $images = $_SESSION['post']['image'];
 }

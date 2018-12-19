@@ -4,9 +4,11 @@ require __DIR__.'/views/header.php';
 // die(var_dump($_SESSION['user']['avatar']));
 // die(var_dump($_SESSION['post']['image']));
 // die(var_dump($images['image']));
-foreach ($images['image'] as $image) {
-    echo $image;
-}
+//
+$userPosts = getPostsByUser($_SESSION['user']['id'], $pdo);
+
+// die(var_dump($userPosts));
+// die(var_dump('./app/posts/uploaded/'.$_SESSION['user']['id'].'/'.$userPosts));
 ?>
 <?php if (isset($message)) : ?>
     <h1><?= $message ?></h1>
@@ -22,8 +24,10 @@ foreach ($images['image'] as $image) {
     <button type="submit" name="button">Upload post</button>
 </form>
 
-<?php foreach($images['image'] as $image): ?>
-    <h3><?= $image; ?></h3>
+<?php foreach ($userPosts as $userPost): ?>
+    <article class="posts">
+        <img src="<?= './app/posts/uploaded/'.$_SESSION['user']['id'].'/'.$userPost['image'] ?>">
+    </article>
 <?php endforeach; ?>
 
 <?php
