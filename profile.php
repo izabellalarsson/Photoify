@@ -27,6 +27,24 @@ $userPosts = getPostsByUser($_SESSION['user']['id'], $pdo);
 <?php foreach ($userPosts as $userPost): ?>
     <article class="posts">
         <img src="<?= './app/posts/uploaded/'.$_SESSION['user']['id'].'/'.$userPost['image'] ?>">
+        <section class="likes">
+            <i class="far fa-heart unfilled"></i>
+            <i class="fas fa-heart filled"></i>
+        </section>
+        <section class="description">
+            <p><a href=""><?= $_SESSION['user']['username'];?></a> <?= $userPost['description']  ?></p>
+        </section>
+        <section class="edit-post-button">
+            <a href="">edit post</a>
+        </section>
+        <section class="edit-post">
+            <form action="./../app/users/settings-app.php" method="post" enctype="multipart/form-data" class="settings-form">
+                <input type="file" accept=".jpg" name="avatar" class="avatar">
+                <label for="avatar">Bio</label>
+                <textarea type="text" name="profile_bio" rows="1" id="profile_bio" placeholder="<?= $userPost['description']; ?>" value="<?= $userPost['description']; ?>"></textarea>
+                <button type="submit" name="update">update</button>
+            </form>
+        </section>
     </article>
 <?php endforeach; ?>
 

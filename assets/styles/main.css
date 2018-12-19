@@ -159,11 +159,41 @@ a:hover {
     padding: 5%;
     border-radius: 10px;
     width: 95%;
-    margin: 10% 0;
+    margin: 5% 0;
 }
 
 .posts img {
     width: 100%;
     padding: 0;
     margin: 0;
+}
+
+.posts .likes {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.posts .edit-post-button {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.posts .likes i {
+    margin-top: 2%;
+}
+
+.posts .likes i.unfilled {
+    display: block;
+}
+.posts .likes i.unfilled.hide {
+    display: none;
+}
+
+.posts .likes i.filled {
+    display: none;
+}
+.posts .likes i.filled.show {
+    display: block;
 }

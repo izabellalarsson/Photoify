@@ -25,9 +25,9 @@ if (isset($_POST['description'], $_FILES['image'])) {
                 $extention = pathinfo($image['name'])['extension'];
                 $fileName = pathinfo($image['name'])['filename'];
                 $username = $_SESSION['user']['username'];
-                $fileTime = date("ymd:H:i");
+                $fileTime = date("ymd:H:i:s");
                 $userFolder = $id;
-                $imageName = $id.'-'.$fileTime.'-'.$username.'.'.$extention;
+                $imageName = $id.'-'.$fileTime.'.'.$extention;
                 // $imageName = $id.'.'.$extention;
                 // die(var_dump($imageName));
 

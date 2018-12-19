@@ -19,6 +19,14 @@ if (!function_exists('redirect')) {
 
 // die(var_dump(file_exists(__DIR__.'/uploaded/'.'2'.'/'.'2-181219:09:47-vanessa2.jpg')));
 
+/**
+ * Get the posts form the user id.
+ *
+ * @param int $id and $pdo
+ *
+ * @return $userPost
+ */
+
 function getPostsByUser(int $id, $pdo){
       $fileName = '/uploaded/'.$id;
 
@@ -45,6 +53,10 @@ function getPostsByUser(int $id, $pdo){
             }
         }
         return $userPosts;
+}
+
+function getAllPosts ($pdo) {
+
 }
 
 
