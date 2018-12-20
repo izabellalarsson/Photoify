@@ -55,9 +55,7 @@ function getPostsByUser(int $id, $pdo){
         return $userPosts;
 }
 
-function getAllPosts ($pdo) {
-
-}
+// gör en funktion där den kollar om id är satt
 
 
 

@@ -23,7 +23,6 @@ if (isset($_POST['email'], $_POST['password-confirm'])){
             if (!$statement){
                 die(var_dump($pdo->errorInfo()));
             }
-
             $statement->bindParam(':id', $id, PDO::PARAM_STR);
 
             $statement->execute();

@@ -38,10 +38,9 @@ $userPosts = getPostsByUser($_SESSION['user']['id'], $pdo);
             <a href="">edit post</a>
         </section>
         <section class="edit-post">
-            <form action="./../app/users/settings-app.php" method="post" enctype="multipart/form-data" class="settings-form">
-                <input type="file" accept=".jpg" name="avatar" class="avatar">
-                <label for="avatar">Bio</label>
-                <textarea type="text" name="profile_bio" rows="1" id="profile_bio" placeholder="<?= $userPost['description']; ?>" value="<?= $userPost['description']; ?>"></textarea>
+            <form action="./../app/posts/update.php" method="post" enctype="multipart/form-data" class="settings-form">
+                <label for="description">Change description</label>
+                <input type="text" name="description" placeholder="<?= $userPost['description']; ?>" value="<?= $userPost['description']; ?>">
                 <button type="submit" name="update">update</button>
             </form>
         </section>
