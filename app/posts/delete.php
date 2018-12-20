@@ -28,7 +28,7 @@ if (isset($_POST['delete'])){
 
         // delete the file from the filesytem
         unlink(__DIR__.'/uploaded/'.$userFolder.'/'.$imageName.'');
-        $_SESSION['message'] = 'Your changes has been updated';
+        $_SESSION['message'] = 'Your post has been deleted';
         redirect('/profile.php');
         die;
     }

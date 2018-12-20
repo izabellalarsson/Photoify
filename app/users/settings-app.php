@@ -28,7 +28,6 @@ if (isset($_POST['password'], $_POST['email'])){
 
         $statement->execute();
         $user = $statement->fetch(PDO::FETCH_ASSOC);
-
         if (password_verify($password, $user['password'])){
             $avatar = $user['avatar'];
             $extention = pathinfo($avatar)['extension'];
@@ -67,11 +66,18 @@ if (isset($_POST['password'], $_POST['email'])){
                 $statement->bindParam(':id', $id, PDO::PARAM_INT);
 
                 $statement->execute();
-                $user = $statement->fetch(PDO::FETCH_ASSOC);
+                $updateUser = $statement->fetch(PDO::FETCH_ASSOC);
 
                 move_uploaded_file($_FILES['avatar']['tmp_name'], __DIR__.'/avatar/'.$avatarName.'');
                 $_SESSION['message'] = 'Your changes has been updated';
-                $_SESSION['user']['avatar'] = $avatarName;
+
+                if (!isset($_FILE['avatar'])){
+                    $_SESSION['user']['avatar'] = $user['avatar'];
+                }
+                else {
+                    $_SESSION['user']['avatar'] = $avatarName;
+                }
+
                 $_SESSION['user']['profile_bio'] = $profileBio;
                 redirect('/settings.php');
                 die;
