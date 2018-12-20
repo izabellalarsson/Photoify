@@ -7,7 +7,7 @@ require __DIR__.'/../autoload.php';
 if (isset($_POST['description'])){
     $description = trim($_POST['description']);
     $id = (int) $_SESSION['user']['id'];
-
+// updates the description on all. check the delete.php file and change so it will be right
     if (filter_var($description, FILTER_SANITIZE_STRING)){
 
         $statement = $pdo->prepare("UPDATE posts SET description = :description WHERE user_id = :user_id");

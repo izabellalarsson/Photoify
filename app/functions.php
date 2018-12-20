@@ -30,7 +30,7 @@ if (!function_exists('redirect')) {
 function getPostsByUser(int $id, $pdo){
       $fileName = '/uploaded/'.$id;
 
-      $statement = $pdo->prepare("SELECT * FROM posts WHERE user_id = :user_id");
+      $statement = $pdo->prepare("SELECT * FROM posts WHERE user_id = :user_id ORDER BY created DESC");
 
       if (!$statement){
           die(var_dump($pdo->errorInfo()));
