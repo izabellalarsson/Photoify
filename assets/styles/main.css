@@ -174,7 +174,8 @@ a:hover {
     justify-content: flex-start;
 }
 
-.posts .edit-post-button {
+.posts .edit-post-button,
+.posts .delete-post-button {
     width: 100%;
     display: flex;
     justify-content: flex-end;

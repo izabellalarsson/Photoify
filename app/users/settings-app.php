@@ -145,7 +145,7 @@ if (isset($_POST['password'], $_POST['email'])){
     redirect('/settings.php');
 }
 }
-
+redirect('/');
     //
     // die(var_dump(123));
     // $avatar = $_FILES['avatar'];

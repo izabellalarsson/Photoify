@@ -68,6 +68,7 @@ if (isset($_POST['email'], $_POST['password'], $_POST['password2'], $_POST['user
     }
 }
 
+redirect('/');
     //för kolla match på dubbel password
     //om inte match, skricka tillbaka med felmeddelande
     //sedan hämta från databasen och kolla ifall email&&username redan finns.

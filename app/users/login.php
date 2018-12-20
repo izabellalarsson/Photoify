@@ -45,3 +45,5 @@ if (isset($_POST['username'], $_POST['password'])){
             redirect('/login.php');
         }
 }
+
+redirect('/');

@@ -58,6 +58,8 @@ if (isset($_POST['email'], $_POST['password-confirm'])){
         }
     }
 
+    redirect('/');
+
 
             // if (isset($_FILES['avatar'])){
             //     die(var_dump($_FILES['avatar']));

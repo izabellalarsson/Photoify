@@ -19,8 +19,7 @@ if ($_SESSION['user']['id']) {
 
 // die(var_dump($posts));
 // för att få ut värderna från min fetch all.$
-die(var_dump($posts));
-;
+
 
 $_SESSION['userpost'] = $posts;
 // for($i = 0; $i < count($posts); ++$i){
@@ -39,3 +38,5 @@ $_SESSION['userpost'] = $posts;
 
   // $images = $_SESSION['post']['image'];
 }
+
+redirect('/');

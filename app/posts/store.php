@@ -27,7 +27,7 @@ if (isset($_POST['description'], $_FILES['image'])) {
                 $username = $_SESSION['user']['username'];
                 $fileTime = date("ymd:H:i:s");
                 $userFolder = $id;
-                $imageName = $id.'-'.$fileTime.'.'.$extention;
+                $imageName = $id.'-'.$fileTime.uniqid().'.'.$extention;
                 // $imageName = $id.'.'.$extention;
                 // die(var_dump($imageName));
 
@@ -59,4 +59,4 @@ if (isset($_POST['description'], $_FILES['image'])) {
 }
 
 
-// redirect('/');
+redirect('/');

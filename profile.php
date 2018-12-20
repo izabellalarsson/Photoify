@@ -7,7 +7,6 @@ require __DIR__.'/views/header.php';
 //
 $userPosts = getPostsByUser($_SESSION['user']['id'], $pdo);
 
-// die(var_dump($userPosts));
 // die(var_dump('./app/posts/uploaded/'.$_SESSION['user']['id'].'/'.$userPosts));
 ?>
 <?php if (isset($message)) : ?>
@@ -35,13 +34,21 @@ $userPosts = getPostsByUser($_SESSION['user']['id'], $pdo);
             <p><a href=""><?= $_SESSION['user']['username'];?></a> <?= $userPost['description']  ?></p>
         </section>
         <section class="edit-post-button">
-            <a href="">edit post</a>
+            <a href="">edit</a>
         </section>
         <section class="edit-post">
             <form action="./../app/posts/update.php" method="post" enctype="multipart/form-data" class="settings-form">
                 <label for="description">Change description</label>
                 <input type="text" name="description" placeholder="<?= $userPost['description']; ?>" value="<?= $userPost['description']; ?>">
                 <button type="submit" name="update">update</button>
+            </form>
+        </section>
+        <section class="delete-post-button">
+            <a href="">delete</a>
+        </section>
+        <section class="delete-post">
+            <form action="./../app/posts/delete.php" method="post" enctype="multipart/form-data" class="settings-form">
+                <button type="submit" name="delete">delete post</button>
             </form>
         </section>
     </article>

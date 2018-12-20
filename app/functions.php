@@ -30,8 +30,6 @@ if (!function_exists('redirect')) {
 function getPostsByUser(int $id, $pdo){
       $fileName = '/uploaded/'.$id;
 
-      // die(var_dump(file_exists($fileName)));
-
       $statement = $pdo->prepare("SELECT * FROM posts WHERE user_id = :user_id");
 
       if (!$statement){
@@ -42,8 +40,6 @@ function getPostsByUser(int $id, $pdo){
 
       $statement->execute();
       $userPosts = $statement->fetchAll(PDO::FETCH_ASSOC);
-
-// die(var_dump($userPosts));
 
         for ($i = 0; $i < count($userPosts); ++$i){
             if (file_exists($fileName.'/'.$userPosts[$i]['image'])) {
