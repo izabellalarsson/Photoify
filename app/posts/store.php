@@ -57,6 +57,9 @@ if (isset($_POST['description'], $_FILES['image'])) {
 
 }
 }
+elseif (!isset($_POST['description'], $_FILES['image'])) {
+    redirect('/profile.php');
+}
 
-
-redirect('/');
+$_SESSION['message'] = 'you have to choose a image to upload';
+redirect('/profile.php');

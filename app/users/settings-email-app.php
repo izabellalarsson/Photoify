@@ -43,7 +43,7 @@ if (isset($_POST['email'], $_POST['password-confirm'])){
                     $statement->execute();
                     $user = $statement->fetch(PDO::FETCH_ASSOC);
 
-                    $_SESSION['message'] = 'Your password has been updated';
+                    $_SESSION['message'] = 'Your email has been updated';
                     $_SESSION['user']['email'] = $email;
                     redirect('/settings.php');
                 }

@@ -27,10 +27,10 @@ password.addEventListener('click', () => {
         button.classList.toggle('show');
     });
 });
-password.addEventListener('blur', () => {
-    password.setAttribute('placeholder', 'Current Password');
-    passwordNew.classList.toggle('show');
-    passwordConfirmButton.forEach(button => {
-        button.classList.toggle('show');
-    });
-});
+// password.addEventListener('blur', () => {
+//     password.setAttribute('placeholder', 'Current Password');
+//     passwordNew.classList.toggle('show');
+//     passwordConfirmButton.forEach(button => {
+//         button.classList.toggle('show');
+//     });
+// });

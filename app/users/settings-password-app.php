@@ -48,7 +48,7 @@ if (isset($_POST['password-old'], $_POST['password-new'])){
                         $statement->execute();
                         $user = $statement->fetch(PDO::FETCH_ASSOC);
 
-                        $_SESSION['message'] = 'Your email has been updated';
+                        $_SESSION['message'] = 'Your password has been updated';
                         $_SESSION['user']['password'] = $passwordNew;
                         redirect('/settings.php');
                 }

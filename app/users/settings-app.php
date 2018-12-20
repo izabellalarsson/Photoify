@@ -44,13 +44,17 @@ if (isset($_POST['password'], $_POST['email'])){
                 else {
                     $profileBio = trim(filter_var($_POST['profile_bio'], FILTER_SANITIZE_STRING));
                 }
+                // die(var_dump($user['username']));
 
-            if ($_POST['profile_bio'] == ''){
-                $profileBio = $_SESSION['user']['profile_bio'];
+                //måste hämta allt från databasen för att sedan jämföra med usernamen så att det inte finns.
+            if ($_POST['username'] == ''){
+                $changeUsername = $_SESSION['user']['username'];
 
-                }
-                else {
-                    $profileBio = trim(filter_var($_POST['profile_bio'], FILTER_SANITIZE_STRING));
+            }elseif ($_POST['username'] === $user['username']) {
+                    $_SESSION['message'] = 'this username alredy exists';
+                    die(var_dump(123));
+                }else {
+                    $changeUsername = trim(filter_var($_POST['username'], FILTER_SANITIZE_STRING));
                 }
 
             if (isset($_SESSION['user']['id'])) {
@@ -79,6 +83,7 @@ if (isset($_POST['password'], $_POST['email'])){
                 }
 
                 $_SESSION['user']['profile_bio'] = $profileBio;
+                $_SESSION['user']['username'] = $changeUsername;
                 redirect('/settings.php');
                 die;
             }
