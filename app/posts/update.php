@@ -4,29 +4,37 @@ declare(strict_types=1);
 
 require __DIR__.'/../autoload.php';
 
-if (isset($_POST['description'])){
-    $description = trim($_POST['description']);
-    $id = (int) $_SESSION['user']['id'];
-// updates the description on all. check the delete.php file and change so it will be right
-    if (filter_var($description, FILTER_SANITIZE_STRING)){
+    if (isset($_POST['description'], $_POST['id'])){
+            $post_id = $_POST['id'];
+            $description = trim($_POST['description']);
+            $user_id = (int) $_SESSION['user']['id'];
+            $userFolder = $user_id;
+            $userPosts = getPostsByUser($user_id, $pdo);
 
-        $statement = $pdo->prepare("UPDATE posts SET description = :description WHERE user_id = :user_id");
+        foreach ($userPosts as $userPost){
+            if (filter_var($description, FILTER_SANITIZE_STRING)){
 
-        if (!$statement){
-            die(var_dump($pdo->errorInfo()));
-        }
+                $statement = $pdo->prepare("UPDATE posts SET description = :description WHERE id = :id");
 
-        $statement->bindParam(':description', $description, PDO::PARAM_STR);
-        $statement->bindParam(':user_id', $id, PDO::PARAM_INT);
+                if (!$statement){
+                    die(var_dump($pdo->errorInfo()));
+                }
 
-        $statement->execute();
-        $user = $statement->fetch(PDO::FETCH_ASSOC);
+                $statement->bindParam(':description', $description, PDO::PARAM_STR);
+                $statement->bindParam(':id', $post_id, PDO::PARAM_INT);
 
-        $_SESSION['message'] = 'Your changes has been updated';
-        redirect('/profile.php');
-        die;
-    }
+                $statement->execute();
+                $user = $statement->fetch(PDO::FETCH_ASSOC);
 
+                $_SESSION['message'] = 'Your changes has been updated';
+                redirect('/profile.php');
+            }
+            die;
+}
 }
 
+// updates the description on all. check the delete.php file and change so it will be right
+
+
+//
 redirect('/');

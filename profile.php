@@ -40,15 +40,15 @@ $userPosts = getPostsByUser($_SESSION['user']['id'], $pdo);
             <form action="./../app/posts/update.php" method="post" enctype="multipart/form-data" class="settings-form">
                 <label for="description">Change description</label>
                 <input type="text" name="description" placeholder="<?= $userPost['description']; ?>" value="<?= $userPost['description']; ?>">
-                <button type="submit" name="update">update</button>
+                <button type="submit" name="id" value="<?= $userPost['id']; ?>">update</button>
             </form>
         </section>
         <section class="delete-post-button">
             <a href="">delete</a>
         </section>
         <section class="delete-post">
-            <form action="./../app/posts/delete.php" method="post" enctype="multipart/form-data" class="settings-form">
-                <button type="submit" name="delete">delete post</button>
+            <form action="./../app/posts/delete.php" method="get" enctype="multipart/form-data" class="settings-form">
+                <button type="submit" name="delete" value="<?= $userPost['id']; ?>">delete post</button>
             </form>
         </section>
     </article>
