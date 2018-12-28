@@ -50,9 +50,9 @@ if (isset($_POST['password'], $_POST['email'])){
             if ($_POST['username'] == ''){
                 $changeUsername = $_SESSION['user']['username'];
 
-            }elseif ($_POST['username'] === $user['username']) {
+            }elseif ($_POST['username'] === $_SESSION['user']['username']) {
                     $_SESSION['message'] = 'this username alredy exists';
-                    die(var_dump(123));
+
                 }else {
                     $changeUsername = trim(filter_var($_POST['username'], FILTER_SANITIZE_STRING));
                 }
