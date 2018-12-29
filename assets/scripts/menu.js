@@ -5,8 +5,6 @@ const toggleClose = document.querySelector('.toggle-close');
 const navbar = document.querySelector('.navbar');
 const navItems = document.querySelectorAll('.nav-item');
 
-console.log(toggle);
-
 toggle.addEventListener('click', () => {
     // navItems.forEach(navItem => {
     //     navItem.classList.toggle('active');
