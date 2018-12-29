@@ -1,10 +1,6 @@
 <?php
 require __DIR__.'/views/header.php';
 
-// die(var_dump($_SESSION['user']['avatar']));
-// die(var_dump($_SESSION['post']['image']));
-// die(var_dump($images['image']));
-//
 $userPosts = getPostsByUser($_SESSION['user']['id'], $pdo);
 
 // die(var_dump('./app/posts/uploaded/'.$_SESSION['user']['id'].'/'.$userPosts));

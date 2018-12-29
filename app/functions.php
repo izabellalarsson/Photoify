@@ -28,39 +28,38 @@ if (!function_exists('redirect')) {
  */
 
 function getPostsByUser(int $id, $pdo){
-      $fileName = '/uploaded/'.$id;
+  $fileName = '/uploaded/'.$id;
 
-      $statement = $pdo->prepare("SELECT * FROM posts WHERE user_id = :user_id ORDER BY created DESC");
+  $statement = $pdo->prepare("SELECT * FROM posts WHERE user_id = :user_id ORDER BY created DESC");
 
-      if (!$statement){
-          die(var_dump($pdo->errorInfo()));
-      }
+  if (!$statement){
+      die(var_dump($pdo->errorInfo()));
+  }
 
-      $statement->bindParam(':user_id', $id, PDO::PARAM_STR);
+  $statement->bindParam(':user_id', $id, PDO::PARAM_STR);
 
-      $statement->execute();
-      $userPosts = $statement->fetchAll(PDO::FETCH_ASSOC);
+  $statement->execute();
+  $userPosts = $statement->fetchAll(PDO::FETCH_ASSOC);
 
-        for ($i = 0; $i < count($userPosts); ++$i){
-            if (file_exists($fileName.'/'.$userPosts[$i]['image'])) {
+    for ($i = 0; $i < count($userPosts); ++$i){
+        if (file_exists($fileName.'/'.$userPosts[$i]['image'])) {
 
-                return $userPosts[$i]['image'];
+            return $userPosts[$i]['image'];
 
-            }
         }
-        return $userPosts;
+    }
+    return $userPosts;
 }
 // gör en funktion där den kollar om id är satt
 
 
-//get all the posts from every user.
 function getAllPosts($pdo){
-$statement = $pdo->query("SELECT * FROM posts ORDER BY created DESC");
-if (!$statement){
-    die(var_dump($pdo->errorInfo()));
-}
+    $statement = $pdo->query("SELECT * from posts join users on posts.user_id = users.id ORDER BY created DESC");
+    if (!$statement){
+        die(var_dump($pdo->errorInfo()));
+    }
 
-$allPosts = $statement->fetchAll(PDO::FETCH_ASSOC);
+    $allPosts = $statement->fetchAll(PDO::FETCH_ASSOC);
 
 
     return $allPosts;

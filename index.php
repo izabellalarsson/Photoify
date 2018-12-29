@@ -2,6 +2,7 @@
 require __DIR__.'/views/header.php';
 
 $allPosts = getAllPosts($pdo);
+
 ?>
 
 <article>
@@ -16,7 +17,7 @@ $allPosts = getAllPosts($pdo);
                 <i class="fas fa-heart filled"></i>
             </section>
             <section class="description">
-                <p><a href=""><?= $post['user_id'];?></a> <?= $post['description']  ?></p>
+                <p><a href=""><?= $post['username'];?></a> <?= $post['description']  ?></p>
             </section>
             <?php if ($_SESSION['user']['id'] === $post['user_id']): ?>
                 <section class="edit-post-button">
