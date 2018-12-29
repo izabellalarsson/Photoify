@@ -50,9 +50,21 @@ function getPostsByUser(int $id, $pdo){
         }
         return $userPosts;
 }
-
 // gör en funktion där den kollar om id är satt
 
+
+//get all the posts from every user.
+function getAllPosts($pdo){
+$statement = $pdo->query("SELECT * FROM posts ORDER BY created DESC");
+if (!$statement){
+    die(var_dump($pdo->errorInfo()));
+}
+
+$allPosts = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+
+    return $allPosts;
+}
 
 
 // function sortUserPosts(array $a, array $b){
