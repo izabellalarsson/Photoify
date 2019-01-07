@@ -12,8 +12,14 @@ $allPosts = getAllPosts($pdo);
             <article class="posts">
             <img src="<?= './app/posts/uploaded/'.$post['user_id'].'/'.$post['image'] ?>">
             <section class="likes">
-                <i class="far fa-heart unfilled"></i>
-                <i class="fas fa-heart filled"></i>
+                <form class="like" action="./../app/likes/likes.php" method="post">
+                    <input type="hidden" name="post_id" value="<?= $post['id'] ?>">
+                    <button type="submit" name="likes">
+                        <i class="far fa-heart unfilled"></i>
+                    </button>
+                    <i class="fas fa-heart filled"></i>
+
+                </form>
             </section>
             <section class="description">
                 <p><a href=""><?= $post['username'];?></a> <?= $post['description']  ?></p>

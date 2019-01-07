@@ -20,7 +20,7 @@ if (isset($_GET['delete'])){
                     die(var_dump($pdo->errorInfo()));
                 }
 
-                $statement->bindParam(':id', $post_id, PDO::PARAM_STR);
+                $statement->bindParam(':id', $post_id, PDO::PARAM_INT);
                 $statement->bindParam(':image', $imageName, PDO::PARAM_STR);
 
                 $statement->execute();
