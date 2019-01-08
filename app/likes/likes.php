@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 require __DIR__.'/../autoload.php';
 
+echo 'hej';
 if (isset($_POST['likes'], $_POST['post_id'])){
     if (filter_var($_POST['post_id'], FILTER_VALIDATE_INT)){
         $user = $_SESSION['user']['id'];
@@ -20,12 +21,13 @@ if (isset($_POST['likes'], $_POST['post_id'])){
 
         $statement->execute();
         $likes = $statement->fetch(PDO::FETCH_ASSOC);
-
         if ($likes) {
             userDislikesPost($postId, $user, $pdo);
+            redirect('/index.php');
         }
         else {
             userLikesPost($postId, $user, $pdo);
+            redirect('/index.php');
         }
 
 

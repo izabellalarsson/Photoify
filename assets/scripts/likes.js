@@ -1,14 +1,53 @@
 'use strict';
 
-const heart = document.querySelector('.posts .likes i.unfilled');
-const filledHeart = document.querySelector('.posts .likes i.filled');
+const button = document.querySelectorAll('.posts .likes button');
+const form = document.querySelector('.posts .likes form');
 
-heart.addEventListener('click', () => {
-    filledHeart.classList.add('show');
-    heart.classList.add('hide');
+// let formData = document.querySelector('.posts .likes form');
+// console.log(formData);
+
+let formData = new FormData(document.querySelector('.posts .likes form'));
+
+console.log(button);
+
+button.forEach(function(button) {
+    button.addEventListener('click', event => {
+        //Prevent form from sending
+        event.preventDefault();
+
+        //Toggle icon
+        for (let heart of button.children) {
+            heart.classList.toggle('show');
+        }
+
+        fetch(form.action, {
+            method: 'POST',
+            body: formData,
+        })
+            .then(response => response.json())
+            .then(json => {
+                console.log(json);
+            });
+
+        // fetch(formData.action, {
+        //     method: 'post',
+        //     body: {
+        //         post_id: 1,
+        //     },
+        // }).then(response => {
+        //     response;
+        // });
+
+        //Send form with fetch()
+        // fetch(formData, {
+        //     headers: {
+        //         'Content-type': 'application/json',
+        //     },
+        //     body: formData.values,
+        // });
+    });
 });
 
-filledHeart.addEventListener('click', () => {
-    filledHeart.classList.remove('show');
-    heart.classList.remove('hide');
-});
+// var formData = new FormData(document.querySelector('form'))
+
+// först formet submittas adda event, prevent defauld, skickar requsetetn. hämta ut data.

@@ -9,15 +9,15 @@ $allPosts = getAllPosts($pdo);
     <?php if(isset($_SESSION['user'])) : ?>
         <p><?= 'Hello, ' . $_SESSION['user']['name'] ?></p>
         <?php foreach ($allPosts as $post) : ?>
-            <article class="posts">
+            <article class="posts" data-id="post_id">
             <img src="<?= './app/posts/uploaded/'.$post['user_id'].'/'.$post['image'] ?>">
             <section class="likes">
                 <form class="like" action="./../app/likes/likes.php" method="post">
                     <input type="hidden" name="post_id" value="<?= $post['id'] ?>">
                     <button type="submit" name="likes">
-                        <i class="far fa-heart unfilled"></i>
+                        <i class="far fa-heart show"></i>
+                        <i class="fas fa-heart"></i>
                     </button>
-                    <i class="fas fa-heart filled"></i>
 
                 </form>
             </section>

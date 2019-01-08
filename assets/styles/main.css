@@ -183,18 +183,8 @@ a:hover {
 
 .posts .likes i {
     margin-top: 2%;
-}
-
-.posts .likes i.unfilled {
-    display: block;
-}
-.posts .likes i.unfilled.hide {
     display: none;
 }
-
-.posts .likes i.filled {
-    display: none;
-}
-.posts .likes i.filled.show {
+.posts .likes i.show {
     display: block;
 }
