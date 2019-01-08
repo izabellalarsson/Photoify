@@ -2,7 +2,6 @@
 require __DIR__.'/views/header.php';
 
 $allPosts = getAllPosts($pdo);
-
 ?>
 
     <h1>Welcome</h1>
@@ -15,8 +14,8 @@ $allPosts = getAllPosts($pdo);
                 <form class="like" action="./../app/likes/likes.php" method="post">
                     <input type="hidden" name="post_id" value="<?= $post['id'] ?>">
                     <button type="submit" name="likes">
-                        <i class="far fa-heart show"></i>
-                        <i class="fas fa-heart"></i>
+                        <i class="<?= (checkLikedPost($post['id'], $_SESSION['user']['id'], $pdo)) ? 'fas fa-heart show' : 'far fa-heart';?>"></i>
+                        <!-- <i class=""></i> -->
                     </button>
 
                 </form>

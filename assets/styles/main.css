@@ -183,7 +183,6 @@ a:hover {
 
 .posts .likes i {
     margin-top: 2%;
-    display: none;
 }
 .posts .likes i.show {
     display: block;

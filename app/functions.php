@@ -105,6 +105,22 @@ function userDislikesPost($post, $user, $pdo){
 
 }
 
+function checkLikedPost($post, $user, $pdo) {
+    $statement = $pdo->prepare("SELECT * FROM likes WHERE user_id = :user_id AND post_id = :post_id");
+
+    if (!$statement){
+        die(var_dump($pdo->errorInfo()));
+    }
+
+    $statement->bindParam(':post_id', $post, PDO::PARAM_INT);
+    $statement->bindParam(':user_id', $user, PDO::PARAM_INT);
+
+    $statement->execute();
+    $user = $statement->fetch(PDO::FETCH_ASSOC);
+
+    return $user;
+}
+
 
 
 
