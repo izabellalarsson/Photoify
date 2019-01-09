@@ -23,7 +23,7 @@ if (isset($_POST['username'], $_POST['password'])){
         $statement->execute();
         $user = $statement->fetch(PDO::FETCH_ASSOC);
 
-
+// die(var_dump($user['username']));
         // $user_Email = $statement->fetch(PDO::FETCH_ASSOC);
         // $user_Password = $statement->fetch(PDO::FETCH_ASSOC);
 
@@ -39,7 +39,11 @@ if (isset($_POST['username'], $_POST['password'])){
             ];
             redirect('/index.php');
 
-        }elseif (!password_verify($password, $user['password'])){
+        }elseif (!$user['username']){
+            $_SESSION['message'] = 'This username does not exist';
+            redirect('/login.php');
+        }
+        elseif (!password_verify($password, $user['password'])){
             $_SESSION['message'] = 'Wrong password';
             redirect('/login.php');
         }

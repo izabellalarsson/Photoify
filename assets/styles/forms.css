@@ -1,49 +1,87 @@
 .settings {
-    background-image: linear-gradient(
-        to top,
-        rgba(255, 255, 255),
-        rgb(246, 246, 246)
-    );
+    background-color: var(--form-bg-color);
+    width: 100%;
+    display: flex;
+    margin-top: -0.9vh;
+    flex-direction: column;
+    font-family: 'Fjalla One', sans-serif;
     padding: 5%;
-    border-radius: 10px;
-    width: 95%;
-    margin: 10% 0;
 }
+
+.settings h2 {
+    font-size: 1em;
+    margin-bottom: 10px;
+}
+
+.settings .avatar-show {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    font-size: 0.8em;
+}
+
+.settings .avatar-show label,
+.settings .avatar-show .avatar-upload {
+    align-self: flex-start;
+}
+
+.settings label {
+    font-size: 0.8em;
+    margin-top: 5px;
+}
+
+.settings .avatar-show .avatar-upload input {
+    border: 0;
+    padding: 6px;
+    background-color: var(--form-bg-color);
+    font-size: 0.8em;
+}
+
 .settings form {
     width: 100%;
     padding: 0;
     margin: 0;
     display: flex;
     flex-direction: column;
+    justify-content: center;
 }
 
-input {
-    border: none;
-    border-bottom: 1px solid #000;
-    margin: 5% 0;
-    font-size: 1.1em;
-}
-
-.settings .avatar-upload input {
-    margin: 5% 0;
-    font-size: 1em;
-}
-
-textarea {
+.settings input,
+.settings textarea {
+    border: 1px solid #000;
+    padding: 6px;
+    background-color: var(--form-bg-color);
+    font-size: 0.625em;
+    font-family: 'Fjalla One', sans-serif;
+    margin: 1% 0;
     resize: none;
-    font-size: 1.2em;
-    border: none;
-    border-bottom: 1px solid #000;
+}
+
+.settings button {
+    align-self: flex-end;
+    background-color: var(--pink-color);
+    color: #000;
+    font-size: 0.9em;
+    border-radius: 2%;
+    padding: 2px;
+    width: 30%;
+    border: 0;
+}
+
+.settings .change-email button,
+.settings .change-password button {
+    display: none;
+    margin: 0 2px;
+}
+
+.settings .confirm label {
+    font-size: 0.9em;
 }
 
 .settings .confirm {
     margin: 10% 0;
     display: flex;
     flex-direction: column;
-}
-
-.settings .confirm label {
-    font-size: 1.2em;
 }
 
 :focus {
@@ -54,13 +92,6 @@ textarea {
     border: none;
 }
 
-.avatar-show {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
 .avatar-img-settings {
     width: 8em;
     height: 8em;
@@ -68,19 +99,6 @@ textarea {
 
 .avatar-show .avatar-picture img {
     border-radius: 100%;
-}
-.avatar-show .avatar-upload {
-    text-align: center;
-}
-
-.settings button {
-    align-self: flex-end;
-    background-color: #104547;
-    color: #fff;
-    font-size: 1.2em;
-    border-radius: 10%;
-    padding: 3%;
-    width: 30%;
 }
 
 /* Settings form  */
@@ -108,16 +126,6 @@ textarea {
     display: flex;
     justify-content: center;
 }
-.settings .change-email button,
-.settings .change-password button {
-    background-color: #104547;
-    color: #fff;
-    font-size: 1em;
-    border-radius: 4px;
-    padding: 2%;
-    width: 30%;
-    display: none;
-}
 
 .settings .change-email button.show,
 .settings .change-password button.show {
@@ -125,5 +133,5 @@ textarea {
 }
 
 .settings hr {
-    border: 2px solid #104547;
+    border: 1px solid #104547;
 }

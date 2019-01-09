@@ -76,13 +76,6 @@ body {
     font-size: 1.14em;
 }
 
-.bg-start .crate-start {
-}
-
-/* .bg-start .create-start {
-    width: 60%;
-} */
-
 .bg-start .create-start {
     background-color: var(--pink-color);
     color: #000;
