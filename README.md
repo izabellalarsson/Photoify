@@ -34,7 +34,7 @@ Feedback on the project is always welcome. Please [file an issue](https://github
 -   [x] As a user I should be able to create new posts with image and description.
 -   [x] As a user I should be able to edit my posts.
 -   [x] As a user I should be able to delete my posts.
--   [ ] As a user I should be able to like and dislike posts.
+-   [x] As a user I should be able to like and dislike posts.
 
 ## Tested
 

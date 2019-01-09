@@ -24,7 +24,6 @@ if (isset($_POST['username'], $_POST['password'])){
         $user = $statement->fetch(PDO::FETCH_ASSOC);
 
 
-
         // $user_Email = $statement->fetch(PDO::FETCH_ASSOC);
         // $user_Password = $statement->fetch(PDO::FETCH_ASSOC);
 
@@ -40,8 +39,8 @@ if (isset($_POST['username'], $_POST['password'])){
             ];
             redirect('/index.php');
 
-        }else {
-            $_SESSION['message'] = 'This user does not exist';
+        }elseif (!password_verify($password, $user['password'])){
+            $_SESSION['message'] = 'Wrong password';
             redirect('/login.php');
         }
 }

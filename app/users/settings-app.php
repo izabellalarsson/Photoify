@@ -29,14 +29,18 @@ if (isset($_POST['password'], $_POST['email'])){
         $statement->execute();
         $user = $statement->fetch(PDO::FETCH_ASSOC);
         if (password_verify($password, $user['password'])){
+            $fileTime = date("ymd");
             $avatar = $user['avatar'];
             $extention = pathinfo($avatar)['extension'];
             $fileName = pathinfo($avatar)['filename'];
             $id = (int) $_SESSION['user']['id'];
             $username = $_SESSION['user']['username'];
-            $fileTime = date("ymd");
             $avatarName = $id.'-'.$username.'.'.$extention;
 
+            // if (!isset($_POST['avatar'])){
+            //     $avatar = 'default.jpg';
+            // }else {
+            // }
             if ($_POST['profile_bio'] == ''){
                 $profileBio = $_SESSION['user']['profile_bio'];
 

@@ -6,19 +6,24 @@ require __DIR__.'/../autoload.php';
 
 // In this file we create users.
 
-if (isset($_POST['email'], $_POST['password'], $_POST['password2'], $_POST['username'], $_POST['full_name'])){
+if (isset($_POST['email'], $_POST['password'], $_POST['password2'], $_POST['username'], $_POST['fullname'])){
 
-    if ($_POST['password'] !== $_POST['password2']) {
-        $_SESSION['message'] = 'Please insert the same passwork in the feild';
+    if ($_POST['email'] == '' || $_POST['password'] == '' || $_POST['password2']== '' || $_POST['username']== '' || $_POST['fullname']== ''){
+        $_SESSION['message'] = 'Please fill in all the felds';
+        redirect('/create.php');
+    }
+    else if ($_POST['password'] !== $_POST['password2']) {
+        $_SESSION['message'] = "The passwords dosen't match";
         redirect('/create.php');
 
-    } else {
+    }
+    else {
         $email = trim($_POST['email']);
         $password = trim(password_hash($_POST['password'], PASSWORD_DEFAULT));
         $username = trim($_POST['username']);
-        $fullname = trim($_POST['full_name']);
+        $fullname = trim($_POST['fullname']);
 
-        $statement = $pdo->prepare("SELECT email, username FROM users WHERE username = :username AND email = :email");
+        $statement = $pdo->prepare("SELECT email, username FROM users WHERE username = :username OR email = :email");
 
         if (!$statement){
             die(var_dump($pdo->errorInfo()));
@@ -30,12 +35,14 @@ if (isset($_POST['email'], $_POST['password'], $_POST['password2'], $_POST['user
         $statement->execute();
         $user = $statement->fetch(PDO::FETCH_ASSOC);
 
-        if ($user['email'] == $email
-        && $user['username'] == $username) {
-            $_SESSION['message'] = 'sorry you alredy have an account. sign in';
+        if ($user['email'] == $email) {
+            $_SESSION['message'] = 'The email is alredy exists';
             redirect('/create.php');
-
-    } elseif (filter_var($email, FILTER_VALIDATE_EMAIL)  &&
+    }elseif ($user['username'] == $username){
+        $_SESSION['message'] = 'The username is taken';
+        redirect('/create.php');
+    }
+    elseif (filter_var($email, FILTER_VALIDATE_EMAIL)  &&
         filter_var($fullname, FILTER_SANITIZE_STRING) &&
         filter_var($username, FILTER_SANITIZE_STRING)) {
 
@@ -53,11 +60,11 @@ if (isset($_POST['email'], $_POST['password'], $_POST['password2'], $_POST['user
             $statement->execute();
             $user = $statement->fetch(PDO::FETCH_ASSOC);
 
-                $_SESSION['user'] = [
-                    'username' => $username,
-                    'name' => $fullname,
-                    'email' => $email
-                ];
+                // $_SESSION['user'] = [
+                //     'username' => $username,
+                //     'name' => $fullname,
+                //     'email' => $email
+                // ];
                 $_SESSION['message'] = 'Log in on your new accont';
                 redirect('/login.php');
 
@@ -67,6 +74,7 @@ if (isset($_POST['email'], $_POST['password'], $_POST['password2'], $_POST['user
         }
     }
 }
+
 
 redirect('/');
     //för kolla match på dubbel password

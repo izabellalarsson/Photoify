@@ -17,20 +17,24 @@ const passwordConfirmButton = document.querySelectorAll(
     '.settings .change-password button'
 );
 
-email.addEventListener('click', () => {
-    emailTwo.classList.toggle('show');
-    emailConfirmButton.forEach(button => {
-        button.classList.toggle('show');
+if (email) {
+    email.addEventListener('click', () => {
+        emailTwo.classList.toggle('show');
+        emailConfirmButton.forEach(button => {
+            button.classList.toggle('show');
+        });
     });
-});
+}
 
-password.addEventListener('click', () => {
-    password.setAttribute('placeholder', 'Current Password');
-    passwordNew.classList.toggle('show');
-    passwordConfirmButton.forEach(button => {
-        button.classList.toggle('show');
+if (password) {
+    password.addEventListener('click', () => {
+        password.setAttribute('placeholder', 'Current Password');
+        passwordNew.classList.toggle('show');
+        passwordConfirmButton.forEach(button => {
+            button.classList.toggle('show');
+        });
     });
-});
+}
 // password.addEventListener('blur', () => {
 //     password.setAttribute('placeholder', 'Current Password');
 //     passwordNew.classList.toggle('show');

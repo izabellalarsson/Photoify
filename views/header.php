@@ -19,6 +19,7 @@ if (isset($_SESSION['message'])) {
     <title><?php echo $config['title']; ?></title>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css">
     <link rel="stylesheet" href="https://csstools.github.io/sanitize.css/latest/sanitize.css">
+    <link href="https://fonts.googleapis.com/css?family=Fjalla+One" rel="stylesheet">
     <link rel="stylesheet" href="/assets/styles/main.css">
     <link rel="stylesheet" href="/assets/styles/forms.css">
 </head>

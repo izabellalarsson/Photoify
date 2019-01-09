@@ -3,6 +3,7 @@
         <script type="text/javascript" src="../assets/scripts/posts.js"></script>
         <script type="text/javascript" src="../assets/scripts/likes.js"></script>
         <script type="text/javascript" src="../assets/scripts/settings.js"></script>
+        <script type="text/javascript" src="../assets/scripts/upload-post.js"></script>
         <script type="text/javascript" src="../assets/scripts/main.js"></script>
     </body>
 </html>

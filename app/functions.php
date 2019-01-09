@@ -59,7 +59,9 @@ function getAllPosts($pdo){
                             posts.image,
                             users.id as user_id,
                             users.username,
-                            posts.description
+                            users.avatar,
+                            posts.description,
+                            posts.created
                             from posts
                             join users on posts.user_id = users.id
                             ORDER BY created DESC");
@@ -120,6 +122,21 @@ function checkLikedPost($post, $user, $pdo) {
 
     return $user;
 }
+
+// function checkAvatar($id, $pdo) {
+//     $statement = $pdo->prepare("SELECT * FROM users WHERE id = :id");
+//
+//     if (!$statement){
+//         die(var_dump($pdo->errorInfo()));
+//     }
+//
+//     $statement->bindParam(':id', $id, PDO::PARAM_INT);
+//
+//     $statement->execute();
+//     $id = $statement->fetch(PDO::FETCH_ASSOC);
+//
+//     return $id;
+// }
 
 
 
