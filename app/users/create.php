@@ -70,6 +70,7 @@ if (isset($_POST['email'], $_POST['password'], $_POST['password2'], $_POST['user
 
 
             } else {
+                $_SESSION['message'] = 'This is not a email';
                 redirect('/create.php');
         }
     }

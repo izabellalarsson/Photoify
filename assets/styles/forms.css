@@ -84,6 +84,20 @@
     flex-direction: column;
 }
 
+.settings .delete-account .delete {
+  display: flex;
+  flex-direction: column;
+}
+
+.settings .delete-account .delete-confirm {
+  display: flex;
+  justify-content: center;
+}
+
+.settings .delete-account .delete-confirm button {
+  margin: 2px 2px;
+}
+
 :focus {
     outline: none;
 }

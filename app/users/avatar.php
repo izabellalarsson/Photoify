@@ -22,7 +22,7 @@ if (isset($_FILES['avatar'])){
   if ($avatar['size'] > 2000000){
     echo 'The uploaded file exceeded the file size limit.';
   }
-  elseif ($avatar['type'] != 'image/png') {
+  elseif ($avatar['type'] !== 'image/png') {
     echo 'The image file type is not allowed.';
   }
   elseif (filter_var($avatar['name'], FILTER_SANITIZE_STRING)) {

@@ -10,10 +10,12 @@ if (!isset($_SESSION['user']['email'])) {
 
 <article class="settings">
     <h2>Edit profile</h2>
-    <?php if (isset($message)) : ?>
-        <h3><?= $message ?></h3>
+    <article class="message settings">
+        <?php if (isset($message)) : ?>
+        <p><?= $message ?></p>
 
     <?php endif; ?>
+    </article>
     <form action="./../app/users/settings-app.php" method="post" enctype="multipart/form-data" class="settings-form">
         <div class="avatar-show">
             <div class="avatar-picture">
@@ -64,8 +66,17 @@ if (!isset($_SESSION['user']['email'])) {
             <button type="submit" name="cancel">Cancel</button>
             <button type="submit" name="save">Save</button>
         </div>
+        <br>
         </div>
-
+    </form>
+    <form action="./../app/users/delete-account.php" method="get" class="delete-account">
+        <div class="delete">
+            <label for="delete-acc">Delete your account</label>
+        </div>
+        <div class="delete-confirm">
+            <button type="submit" name="delete-acc" value="<?= $_SESSION['user']['id']; ?>">Yes</button>
+            <button type="submit" name="delete-acc-no" value="<?= $_SESSION['user']['id']; ?>">No</button>
+        </div>
     </form>
 </article>
 

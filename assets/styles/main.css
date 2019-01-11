@@ -266,12 +266,21 @@ body {
     width: 97%;
     margin: 0.5vh 0;
 }
+
+.posts .header-info {
+  display: flex;
+  align-items: flex-start;
+}
+.posts .header-info .edit-post-button {
+  width: 50%;
+}
 .posts .avatar-info {
     display: flex;
     align-items: center;
     margin-bottom: 2%;
     font-family: Helvetica;
     font-size: 0.9em;
+    width: 50%;
 }
 .posts .avatar-info .user-avatar {
     width: 40px;
@@ -295,7 +304,7 @@ body {
 .posts .information .description {
     font-family: Helvetica;
     font-size: 0.85em;
-    width: 50%;
+    width: 80%;
     margin-top: 10px;
 }
 
@@ -319,7 +328,7 @@ body {
 }
 
 .posts .likes {
-    width: 50%;
+    width: 20%;
     margin-top: 10px;
     text-align: right;
 }
@@ -378,6 +387,7 @@ body {
 .profile .profile-bio .info p {
     font-family: Helvetica;
     font-size: 0.8em;
+    padding-right: 10px;
 }
 
 .profile .profile-bio .edit a {
@@ -398,6 +408,12 @@ body {
     font-family: Helvetica;
     color: var(--message-color);
     font-size: 0.7em;
+}
+
+.message.settings {
+  font-family: Helvetica;
+  justify-content: flex-start;
+  padding: 0 ;
 }
 
 .upload {
@@ -441,3 +457,4 @@ body {
     display: block;
     margin: -2% 0 0 0;
 }
+

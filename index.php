@@ -23,7 +23,6 @@ echo $date[0];?></p>
             <button type="submit" name="likes">
                 <i class="<?= (checkLikedPost($post['id'], $_SESSION['user']['id'], $pdo)) ? 'fas fa-heart show' : 'far fa-heart';?>"></i>
             </button>
-
         </form>
     </section>
 </article>
@@ -53,6 +52,9 @@ echo $date[0];?></p>
         <div class="bg-start">
             <h1><a href="index.php">Photoify</a></h1>
             <p class="welcome-start">the best of the best places to be</p>
+            <?php if (isset($message)) : ?>
+                <p class="welcome-start"><?= $message ?></p>
+            <?php endif; ?>
             <a class="create-start" href="create.php">Create account</a>
             <a class="login-start" href="login.php">Log in</a>
         </div>
