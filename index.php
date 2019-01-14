@@ -2,6 +2,7 @@
 require __DIR__.'/views/header.php';
 
 $allPosts = getAllPosts($pdo);
+
 ?>
 <?php if(isset($_SESSION['user'])) : ?>
 <?php foreach ($allPosts as $post) : ?>
@@ -9,8 +10,9 @@ $allPosts = getAllPosts($pdo);
     <section class="header-info">
         <section class="avatar-info">
             <img src="<?= './app/users/avatar/'.$post['avatar']; ?>" class="user-avatar">
-            <p><a href="">
-                    <?= $post['username']; ?></a></p>
+            <form action="<?= '/user.php'; ?>" method="get">
+            <button type="submit" name="id" value="<?= $post['user_id']?>"><?= $post['username']; ?></button>
+            </form>
         </section>
         <?php if ($_SESSION['user']['id'] === $post['user_id']): ?>
         <section class="edit-post-button"">

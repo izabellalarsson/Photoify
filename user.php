@@ -1,27 +1,35 @@
 <?php
 require __DIR__.'/views/header.php';
 
-$userPosts = getPostsByUser($_SESSION['user']['id'], $pdo);
-
+if (isset($_GET['id'])){
+    $id = (int) $_GET['id'];
+    $getContent = getUser($pdo, $id);
+    $userPosts = getPostsByUser($id, $pdo);
+}
+else {
+    redirect('/');
+}
 // die(var_dump('./app/posts/uploaded/'.$_SESSION['user']['id'].'/'.$userPosts));
 ?>
 <article class="profile">
     <section class="profile-avatar">
-        <img src="<?= './app/users/avatar/'.$_SESSION['user']['avatar']?>" alt="" class="avatar-img">
+        <img src="<?= './app/users/avatar/'.$getContent['avatar']?>" alt="" class="avatar-img">
     </section>
     <section class="profile-bio">
         <section class="info">
             <h2>
-                <?= $_SESSION['user']['name'] ?>
+                <?= $getContent['name'] ?>
             </h2>
             <p>
-                <?= $_SESSION['user']['profile_bio'] ?? ' ' ; ?>
+                <?= $getContent['profile_bio'] ?? ' ' ; ?>
             </p>
         </section>
+        <?php if ($_SESSION['user']['id'] == $getContent['user_id']) :?>
         <section class="edit">
             <a href="settings.php">Edit profile</a>
             <a href="#" class="upload-btn">Upload Post</a>
         </section>
+<?php endif; ?>
     </section>
 </article>
 <article class="profile message">
@@ -30,7 +38,11 @@ $userPosts = getPostsByUser($_SESSION['user']['id'], $pdo);
         <?= $message ?>
     </p>
     <?php endif; ?>
+<?php if ($getContent['image'] === NULL) : ?>
+  <p>This user has no posts yet</p>
+<?php endif; ?>
 </article>
+
 <article class="profile upload">
     <section class="upload-post">
         <form action="./../app/posts/store.php" method="post" enctype="multipart/form-data" class="settings-form">
@@ -46,14 +58,16 @@ $userPosts = getPostsByUser($_SESSION['user']['id'], $pdo);
 <article class="posts">
     <section class="header-info">
         <section class="avatar-info">
-            <img src="<?= './app/users/avatar/'.$_SESSION['user']['avatar']; ?>" class="user-avatar">
+            <img src="<?= './app/users/avatar/'.$getContent['avatar']; ?>" class="user-avatar">
              <form action="<?= '/user.php'; ?>" method="get">
-            <button type="submit" name="id" value="<?= $post['user_id']?>"><?= $_SESSION['user']['username']; ?></button>
+            <button type="submit" name="id" value="<?= $post['user_id']?>"><?= $getContent['username']; ?></button>
             </form>
         </section>
+        <?php if ($_SESSION['user']['id'] == $getContent['user_id']) :?>
         <section class="edit-post-button">
             <button type="submit" data-id="<?= $post['id']?>"><i class="fas fa-pencil-alt"></i></button>
         </section>
+<?php endif; ?>
     </section>
     <section class="edit-post hidden" data-id="<?= $post['id']?>">
         <form action="./../app/posts/update.php" method="post" enctype="multipart/form-data" class="description-form">
@@ -67,11 +81,11 @@ $userPosts = getPostsByUser($_SESSION['user']['id'], $pdo);
             <button type="submit" name="delete" value="<?= $post['id']; ?>"><i class="fas fa-trash-alt"></i></button>
         </form>
     </section>
-    <img src="<?= './app/posts/uploaded/'.$_SESSION['user']['id'].'/'.$post['image'] ?>">
+    <img src="<?= './app/posts/uploaded/'.$getContent['user_id'].'/'.$post['image'] ?>">
     <article class="information">
         <section class="description">
             <p><a href="">
-                    <?= $_SESSION['user']['username'];?></a>
+                    <?= $getContent['username'];?></a>
                 <?= $post['description']  ?>
             </p>
             <p class="time">

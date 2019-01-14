@@ -123,6 +123,33 @@ function checkLikedPost($post, $user, $pdo) {
     return $user;
 }
 
+function getUser($pdo, int $id) {
+
+    $statement = $pdo->prepare("SELECT
+                            posts.id,
+                            posts.image,
+                            users.id as user_id,
+                            users.username,
+                            users.name,
+                            users.profile_bio,
+                            users.avatar,
+                            posts.description,
+                            posts.created
+                            from users
+                            left join posts on users.id = posts.user_id
+                            WHERE users.id = :id");
+    if (!$statement){
+        die(var_dump($pdo->errorInfo()));
+    }
+
+    $statement->bindParam(':id', $id, PDO::PARAM_INT);
+
+    $statement->execute();
+    $user = $statement->fetch(PDO::FETCH_ASSOC);
+
+    return $user;
+}
+
 // function checkAvatar($id, $pdo) {
 //     $statement = $pdo->prepare("SELECT * FROM users WHERE id = :id");
 //
