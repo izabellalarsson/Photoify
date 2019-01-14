@@ -10,6 +10,7 @@ if (isset($_GET['delete'])){
     $user_id = (int) $_SESSION['user']['id'];
     $userFolder = $user_id;
     $userPosts = getPostsByUser($user_id, $pdo);
+    $redirect = $_GET['page'];
 
         foreach ($userPosts as $userPost){
             if ($post_id == $userPost['id']){
@@ -30,7 +31,7 @@ if (isset($_GET['delete'])){
                 unlink(__DIR__.'/uploaded/'.$userFolder.'/'.$imageName.'');
                 // tar bort den senaste hela tiden. måste fixa.
                 $_SESSION['message'] = 'Your post has been deleted';
-                redirect('/profile.php');
+                redirect($redirect);
 
             }
         }

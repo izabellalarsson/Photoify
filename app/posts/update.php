@@ -5,11 +5,13 @@ declare(strict_types=1);
 require __DIR__.'/../autoload.php';
 
     if (isset($_POST['description'], $_POST['id'])){
+
             $post_id = $_POST['id'];
             $description = trim($_POST['description']);
             $user_id = (int) $_SESSION['user']['id'];
             $userFolder = $user_id;
             $userPosts = getPostsByUser($user_id, $pdo);
+            $redirect = $_POST['page'];
 
         foreach ($userPosts as $userPost){
             if (filter_var($description, FILTER_SANITIZE_STRING)){
@@ -27,7 +29,8 @@ require __DIR__.'/../autoload.php';
                 $user = $statement->fetch(PDO::FETCH_ASSOC);
 
                 $_SESSION['message'] = 'Your changes has been updated';
-                redirect('/profile.php');
+
+                redirect($redirect);
             }
             die;
 }

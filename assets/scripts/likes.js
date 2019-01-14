@@ -1,6 +1,6 @@
 'use strict';
 
-const button = [...document.querySelectorAll('.posts .likes form button')];
+const button = [...document.querySelectorAll('.posts .likes .like button')];
 const form = [...document.querySelectorAll('.posts .likes form')];
 
 form.forEach(form => {
