@@ -9,7 +9,7 @@ editBtn.forEach(button => {
     let id = button.dataset.id;
     const edit = document.querySelector(`.posts .edit-post[data-id="${id}"]`);
 
-    if (id == edit.dataset.id){
+    if (id == edit.dataset.id) {
       edit.classList.toggle('hidden');
     }
   })

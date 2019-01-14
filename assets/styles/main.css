@@ -199,7 +199,8 @@ body {
 }
 
 .toggle-close,
-.toggle.active, .posts .edit-post.hidden {
+.toggle.active,
+.posts .edit-post.hidden {
   display: none;
 }
 
@@ -295,7 +296,7 @@ body {
 
 .posts .edit-post {
   font-family: 'Fjalla One',
-  sans-serif;
+    sans-serif;
 }
 
 
@@ -318,12 +319,12 @@ body {
 
 .posts .edit-post .delete-form button {
   align-self: flex-end;
-    color: var(--message-color);
-    font-size: 0.9em;
-    border: 0;
-    margin: 2% 0;
-    width: auto;
-    background-color: var(--form-bg-color);
+  color: var(--message-color);
+  font-size: 0.9em;
+  border: 0;
+  margin: 2% 0;
+  width: auto;
+  background-color: var(--form-bg-color);
 }
 
 .posts .edit-post input {
@@ -373,6 +374,7 @@ body {
   width: 80%;
   margin-top: 10px;
 }
+
 /* .posts .information .description {
   display: flex;
 } */
@@ -539,25 +541,31 @@ body {
   .posts {
     width: 50%;
   }
+
   .settings {
     width: 50%;
   }
+
   .posts img {
     height: 60vh;
   }
+
   .bg-start .create-start,
   .bg-start .login-start,
   .bg-start .create-form {
     width: 20%;
   }
-.profile {
-  justify-content: center;
-}
-.profile .profile-avatar,
-.profile .profile-bio {
-  width: auto;
-}
-.profile .profile-avatar {
-  padding: 5% 5% 5% 0;
-}
+
+  .profile {
+    justify-content: center;
+  }
+
+  .profile .profile-avatar,
+  .profile .profile-bio {
+    width: auto;
+  }
+
+  .profile .profile-avatar {
+    padding: 5% 5% 5% 0;
+  }
 }

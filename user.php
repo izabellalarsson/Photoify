@@ -29,7 +29,7 @@ else {
             <a href="settings.php">Edit profile</a>
             <a href="#" class="upload-btn">Upload Post</a>
         </section>
-<?php endif; ?>
+        <?php endif; ?>
     </section>
 </article>
 <article class="profile message">
@@ -38,9 +38,9 @@ else {
         <?= $message ?>
     </p>
     <?php endif; ?>
-<?php if ($getContent['image'] === NULL) : ?>
-  <p>This user has no posts yet</p>
-<?php endif; ?>
+    <?php if ($getContent['image'] === NULL) : ?>
+    <p>This user has no posts yet</p>
+    <?php endif; ?>
 </article>
 
 <article class="profile upload">
@@ -59,15 +59,16 @@ else {
     <section class="header-info">
         <section class="avatar-info">
             <img src="<?= './app/users/avatar/'.$getContent['avatar']; ?>" class="user-avatar">
-             <form action="<?= '/user.php'; ?>" method="get">
-            <button type="submit" name="id" value="<?= $post['user_id']?>"><?= $getContent['username']; ?></button>
+            <form action="<?= '/user.php'; ?>" method="get">
+                <button type="submit" name="id" value="<?= $post['user_id']?>">
+                    <?= $getContent['username']; ?></button>
             </form>
         </section>
         <?php if ($_SESSION['user']['id'] == $getContent['user_id']) :?>
         <section class="edit-post-button">
             <button type="submit" data-id="<?= $post['id']?>"><i class="fas fa-pencil-alt"></i></button>
         </section>
-<?php endif; ?>
+        <?php endif; ?>
     </section>
     <section class="edit-post hidden" data-id="<?= $post['id']?>">
         <form action="./../app/posts/update.php" method="post" enctype="multipart/form-data" class="description-form">

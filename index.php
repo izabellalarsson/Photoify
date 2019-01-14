@@ -11,26 +11,28 @@ $allPosts = getAllPosts($pdo);
         <section class="avatar-info">
             <img src="<?= './app/users/avatar/'.$post['avatar']; ?>" class="user-avatar">
             <form action="<?= '/user.php'; ?>" method="get">
-            <button type="submit" name="id" value="<?= $post['user_id']?>"><?= $post['username']; ?></button>
+                <button type="submit" name="id" value="<?= $post['user_id']?>">
+                    <?= $post['username']; ?></button>
             </form>
         </section>
         <?php if ($_SESSION['user']['id'] === $post['user_id']): ?>
         <section class="edit-post-button"">
-                        <button type="submit" data-id="<?= $post['id']?>"><i class="fas fa-pencil-alt"></i></button>
+                        <button type=" submit" data-id="<?= $post['id']?>"><i
+                class="fas fa-pencil-alt"></i></button>
         </section>
     </section>
     <section class="edit-post hidden" data-id="<?= $post['id']?>">
         <form action="./../app/posts/update.php" method="post" enctype="multipart/form-data" class="description-form">
             <label for="description">Change description</label>
             <input type="text" name="description" placeholder="<?= $post['description']; ?>" value="<?= $post['description']; ?>">
-             <input type="hidden" name="page" value="<?= '/';?>">
+            <input type="hidden" name="page" value="<?= '/';?>">
             <button type="submit" name="id" value="<?= $post['id']; ?>">Update</button>
         </form>
         <form action="./../app/posts/delete.php" method="get" enctype="multipart/form-data" class="delete-form">
             <input type="hidden" name="page" value="<?='/';?>">
             <button type="submit" name="delete" value="<?= $post['id']; ?>"><i class="fas fa-trash-alt"></i></button>
         </form>
-    <?php endif; ?>
+        <?php endif; ?>
     </section>
     <img src="<?= './app/posts/uploaded/'.$post['user_id'].'/'.$post['image']; ?>">
     <article class="information">

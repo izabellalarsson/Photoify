@@ -38,7 +38,8 @@ if (isset($_POST['email'], $_POST['password'], $_POST['password2'], $_POST['user
         if ($user['email'] == $email) {
             $_SESSION['message'] = 'The email is alredy exists';
             redirect('/create.php');
-    }elseif ($user['username'] == $username){
+    }
+    elseif ($user['username'] == $username){
         $_SESSION['message'] = 'The username is taken';
         redirect('/create.php');
     }
@@ -69,7 +70,8 @@ if (isset($_POST['email'], $_POST['password'], $_POST['password2'], $_POST['user
                 redirect('/login.php');
 
 
-            } else {
+            }
+            else {
                 $_SESSION['message'] = 'This is not a email';
                 redirect('/create.php');
         }
@@ -78,7 +80,4 @@ if (isset($_POST['email'], $_POST['password'], $_POST['password2'], $_POST['user
 
 
 redirect('/');
-    //för kolla match på dubbel password
-    //om inte match, skricka tillbaka med felmeddelande
-    //sedan hämta från databasen och kolla ifall email&&username redan finns.
-    //annars tryck in i databasen.
+

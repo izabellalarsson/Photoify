@@ -1,6 +1,9 @@
 <?php
 require __DIR__.'/views/header.php';
 
+if (!isset($_SESSION['user']['id'])){
+    redirect('/');
+}
 $userPosts = getPostsByUser($_SESSION['user']['id'], $pdo);
 
 // die(var_dump('./app/posts/uploaded/'.$_SESSION['user']['id'].'/'.$userPosts));
@@ -47,8 +50,9 @@ $userPosts = getPostsByUser($_SESSION['user']['id'], $pdo);
     <section class="header-info">
         <section class="avatar-info">
             <img src="<?= './app/users/avatar/'.$_SESSION['user']['avatar']; ?>" class="user-avatar">
-             <form action="<?= '/user.php'; ?>" method="get">
-            <button type="submit" name="id" value="<?= $post['user_id']?>"><?= $_SESSION['user']['username']; ?></button>
+            <form action="<?= '/user.php'; ?>" method="get">
+                <button type="submit" name="id" value="<?= $post['user_id']?>">
+                    <?= $_SESSION['user']['username']; ?></button>
             </form>
         </section>
         <section class="edit-post-button">

@@ -28,8 +28,6 @@ if (isset($_POST['description'], $_FILES['image'])) {
                 $fileTime = date("ymd:H:i:s");
                 $userFolder = $id;
                 $imageName = $id.'-'.$fileTime.uniqid().'.'.$extention;
-                // $imageName = $id.'.'.$extention;
-                // die(var_dump($imageName));
 
                 $statement = $pdo->prepare("INSERT INTO posts(image, description, user_id) VALUES(:image, :description, :user_id)");
 

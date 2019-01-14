@@ -1,87 +1,87 @@
 .settings {
-    background-color: var(--form-bg-color);
-    width: 100%;
-    display: flex;
-    margin-top: -0.9vh;
-    flex-direction: column;
-    font-family: 'Fjalla One', sans-serif;
-    padding: 5%;
+  background-color: var(--form-bg-color);
+  width: 100%;
+  display: flex;
+  margin-top: -0.9vh;
+  flex-direction: column;
+  font-family: 'Fjalla One', sans-serif;
+  padding: 5%;
 }
 
 .settings h2 {
-    font-size: 1em;
-    margin-bottom: 10px;
+  font-size: 1em;
+  margin-bottom: 10px;
 }
 
 .settings .avatar-show {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    font-size: 0.8em;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  font-size: 0.8em;
 }
 
 .settings .avatar-show label,
 .settings .avatar-show .avatar-upload {
-    align-self: flex-start;
+  align-self: flex-start;
 }
 
 .settings label {
-    font-size: 0.8em;
-    margin-top: 5px;
+  font-size: 0.8em;
+  margin-top: 5px;
 }
 
 .settings .avatar-show .avatar-upload input {
-    border: 0;
-    padding: 6px;
-    background-color: var(--form-bg-color);
-    font-size: 0.8em;
+  border: 0;
+  padding: 6px;
+  background-color: var(--form-bg-color);
+  font-size: 0.8em;
 }
 
 .settings form {
-    width: 100%;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .settings input,
 .settings textarea {
-    border: 1px solid #000;
-    padding: 6px;
-    background-color: var(--form-bg-color);
-    font-size: 0.625em;
-    font-family: 'Fjalla One', sans-serif;
-    margin: 1% 0;
-    resize: none;
+  border: 1px solid #000;
+  padding: 6px;
+  background-color: var(--form-bg-color);
+  font-size: 0.625em;
+  font-family: 'Fjalla One', sans-serif;
+  margin: 1% 0;
+  resize: none;
 }
 
 .settings button {
-    align-self: flex-end;
-    background-color: var(--pink-color);
-    color: #000;
-    font-size: 0.9em;
-    border-radius: 2%;
-    padding: 2px;
-    width: 30%;
-    border: 0;
+  align-self: flex-end;
+  background-color: var(--pink-color);
+  color: #000;
+  font-size: 0.9em;
+  border-radius: 2%;
+  padding: 2px;
+  width: 30%;
+  border: 0;
 }
 
 .settings .change-email button,
 .settings .change-password button {
-    display: none;
-    margin: 0 2px;
+  display: none;
+  margin: 0 2px;
 }
 
 .settings .confirm label {
-    font-size: 0.9em;
+  font-size: 0.9em;
 }
 
 .settings .confirm {
-    margin: 10% 0;
-    display: flex;
-    flex-direction: column;
+  margin: 10% 0;
+  display: flex;
+  flex-direction: column;
 }
 
 .settings .delete-account .delete {
@@ -99,53 +99,56 @@
 }
 
 :focus {
-    outline: none;
+  outline: none;
 }
 
 .avatar-show input {
-    border: none;
+  border: none;
 }
 
 .avatar-img-settings {
-    width: 8em;
-    height: 8em;
+  width: 8em;
+  height: 8em;
 }
 
 .avatar-show .avatar-picture img {
-    border-radius: 100%;
+  border-radius: 100%;
 }
 
 /* Settings form  */
 .confirm-w-password {
-    display: none;
+  display: none;
 }
+
 .confirm-w-password.show {
-    display: block;
+  display: block;
 }
 
 .confirm-new-password {
-    display: none;
+  display: none;
 }
+
 .confirm-new-password.show {
-    display: block;
+  display: block;
 }
 
 .settings .change-email,
 .settings .change-password {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
+
 .settings .change-email .change-email-button,
 .settings .change-password .change-password-button {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 
 .settings .change-email button.show,
 .settings .change-password button.show {
-    display: block;
+  display: block;
 }
 
 .settings hr {
-    border: 1px solid #104547;
+  border: 1px solid #104547;
 }

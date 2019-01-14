@@ -42,10 +42,8 @@ if (isset($_FILES['avatar'])){
       $user = $statement->fetch(PDO::FETCH_ASSOC);
 
       move_uploaded_file($avatar['tmp_name'], __DIR__.'/avatar/'.$avatarName.'');
-      // die(var_dump($avatar));
       $_SESSION['message'] = 'Succes your avatar hase been uploaded';
       $_SESSION['user']['avatar'] = $avatarName;
-      // $_SESSION['user']['profile_bio'] = $profileBio;
       redirect('/profile.php');
         }
   }

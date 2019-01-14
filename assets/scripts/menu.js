@@ -6,16 +6,13 @@ const navbar = document.querySelector('.navbar');
 const navItems = document.querySelectorAll('.nav-item');
 
 toggle.addEventListener('click', () => {
-    // navItems.forEach(navItem => {
-    //     navItem.classList.toggle('active');
-    // });
-    navbar.classList.add('active');
-    toggleClose.classList.add('active');
-    toggle.classList.add('active');
+  navbar.classList.add('active');
+  toggleClose.classList.add('active');
+  toggle.classList.add('active');
 });
 
 toggleClose.addEventListener('click', () => {
-    navbar.classList.remove('active');
-    toggleClose.classList.remove('active');
-    toggle.classList.remove('active');
+  navbar.classList.remove('active');
+  toggleClose.classList.remove('active');
+  toggle.classList.remove('active');
 });

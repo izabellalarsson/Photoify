@@ -6,10 +6,6 @@ require __DIR__.'/../autoload.php';
 
 
 if (isset($_POST['post_id'])){
-    // $file = file_get_contents('php://input');
-    // $file = json_decode($file, true );
-    //
-    // header('Content-Type: application/json');
     if (filter_var($_POST['post_id'], FILTER_VALIDATE_INT)){
         $user = $_SESSION['user']['id'];
         $postId = $_POST['post_id'];
@@ -33,10 +29,8 @@ if (isset($_POST['post_id'])){
             userLikesPost($postId, $user, $pdo);
             redirect('/index.php');
         }
-
-
-        }
     }
+}
 
 
 
