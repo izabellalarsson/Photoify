@@ -39,6 +39,7 @@ Feedback on the project is always welcome. Please [file an issue](https://github
 ## Tested
 * [Per Baltzar](https://github.com/perbaltzar)
 * [Lovisa Hallgren](https://github.com/lovisahallgren)
+* [Nils Nathorst-Windahl](https://github.com/Nattfrost)
 
 ## License
 
