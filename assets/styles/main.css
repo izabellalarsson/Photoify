@@ -400,9 +400,12 @@ body {
 }
 
 .posts .likes {
-  width: 20%;
   margin-top: 10px;
   text-align: right;
+}
+
+.posts .likes form {
+  display: flex;
 }
 
 .posts .edit-post-button,
@@ -424,6 +427,7 @@ body {
   color: black;
   border: 0;
   background-color: var(--form-bg-color);
+  margin-left: 4%;
 }
 
 .profile {

@@ -1,7 +1,8 @@
 'use strict';
-const likes_url = 'http://localhost:8888/app/likes/countlikes.php'
+const likes_url = 'http://localhost:8888/app/likes/countlikes.php';
 const button = [...document.querySelectorAll('.posts .likes .like button')];
 const form = [...document.querySelectorAll('.posts .likes form')];
+
 
 form.forEach(form => {
   form.addEventListener('submit', event => {
@@ -9,22 +10,25 @@ form.forEach(form => {
     const p = document.querySelector('.posts .likes form p');
     event.preventDefault();
 
+
     fetch(form.action, {
       method: 'POST',
       body: formData,
     }).then(response => {});
 
-    fetch(likes_url, {
-    }).then((response) => {
-      return response.json()
-    }).then(data => {
-      p.innerHTML = Object.values(data[0])[0];
-    })
+    // fetch(likes_url, {
+    // }).then((response) => {
+    //     return response.json();
+    //   }).then(data => {
+    //     p.innerHTML = Object.values(data[0])[0];
+    //   })
 
 
-
-
-
+    // fetch(likes_url?post_id=1).then((response) => {
+    //     return response.json();
+    //   }).then(data => {
+    //     p.innerHTML = Object.values(data[0])[0];
+    //   })
   });
 });
 

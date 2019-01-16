@@ -24,11 +24,11 @@ if (isset($_POST['post_id'])){
 
         if ($likes) {
             userDislikesPost($postId, $user, $pdo);
-            redirect('/index.php');
+            redirect('/');
         }
         else {
             userLikesPost($postId, $user, $pdo);
-            redirect('/index.php');
+            redirect('/');
         }
     }
 }

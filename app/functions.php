@@ -165,7 +165,9 @@ function getUser($pdo, int $id) {
 }
 
 function getInformation(int $id, $pdo){
-    $statement = $pdo->prepare("SELECT COUNT(DISTINCT user_id) FROM likes WHERE post_id = :post_id");
+    $statement = $pdo->prepare("SELECT COUNT(*)
+                                FROM likes
+                                WHERE post_id = :post_id");
 
      if (!$statement){
         die(var_dump($pdo->errorInfo()));
@@ -176,7 +178,6 @@ function getInformation(int $id, $pdo){
     $info = $statement->fetchAll(PDO::FETCH_ASSOC);
 
     return $info;
-
 }
 
 // function checkAvatar($id, $pdo) {
