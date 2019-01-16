@@ -7,7 +7,7 @@ require __DIR__.'/../autoload.php';
     if (isset($_POST['description'], $_POST['id'])){
 
             $post_id = $_POST['id'];
-            $description = trim($_POST['description']);
+            $description = trim(filter_var($_POST['description'], FILTER_SANITIZE_STRING));
             $user_id = (int) $_SESSION['user']['id'];
             $userFolder = $user_id;
             $userPosts = getPostsByUser($user_id, $pdo);

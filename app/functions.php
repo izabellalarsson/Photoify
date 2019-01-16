@@ -48,7 +48,6 @@ function getPostsByUser(int $id, $pdo){
     }
     return $userPosts;
 }
-// gör en funktion där den kollar om id är satt
 
 
 function getAllPosts($pdo){
@@ -76,7 +75,8 @@ function getAllPosts($pdo){
 
 function userLikesPost($post, $user, $pdo) {
 
-    $statement = $pdo->prepare("INSERT INTO likes(user_id, post_id) VALUES(:user_id, :post_id)");
+    $statement = $pdo->prepare("INSERT INTO likes(user_id, post_id)
+                                VALUES(:user_id, :post_id)");
 
     if (!$statement){
         die(var_dump($pdo->errorInfo()));
@@ -91,7 +91,9 @@ function userLikesPost($post, $user, $pdo) {
 }
 
 function userDislikesPost($post, $user, $pdo){
-    $statement = $pdo->prepare("DELETE FROM likes WHERE user_id = :user_id AND post_id = :post_id");
+    $statement = $pdo->prepare("DELETE FROM likes
+                                WHERE user_id = :user_id
+                                AND post_id = :post_id");
 
     if (!$statement){
         die(var_dump($pdo->errorInfo()));
@@ -179,25 +181,3 @@ function getInformation(int $id, $pdo){
 
     return $info;
 }
-
-// function checkAvatar($id, $pdo) {
-//     $statement = $pdo->prepare("SELECT * FROM users WHERE id = :id");
-//
-//     if (!$statement){
-//         die(var_dump($pdo->errorInfo()));
-//     }
-//
-//     $statement->bindParam(':id', $id, PDO::PARAM_INT);
-//
-//     $statement->execute();
-//     $id = $statement->fetch(PDO::FETCH_ASSOC);
-//
-//     return $id;
-// }
-
-
-
-
-// function sortUserPosts(array $a, array $b){
-//      return $a > $b;
-// }

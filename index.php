@@ -46,15 +46,17 @@ $allPosts = getAllPosts($pdo);
                 <?= $post['description']  ?>
             </p>
             <p class="time">
-                <?php $date = explode(' ', $post['created']);
-echo $date[0];?>
+                <?php $date = explode(' ', $post['created']); ?>
+                <?= $date[0];?>
             </p>
         </section>
         <section class="likes">
             <!-- <form class="like" action="./../app/likes/likes.php" method="post" target="hiddenFrame"> -->
             <form class="like" action="./../app/likes/likes.php" method="post">
                 <input type="hidden" name="post_id" value="<?= $post['id'] ?>">
-                <p><?= (countPostLikes($post['id'], $pdo ) > 0) ? countPostLikes($post['id'], $pdo) : ''; ?></p>
+                <p>
+                    <?= (countPostLikes($post['id'], $pdo ) > 0) ? countPostLikes($post['id'], $pdo) : ''; ?>
+                </p>
                 <button type="submit" name="likes" value="3">
                     <i class="<?= (checkLikedPost($post['id'], $_SESSION['user']['id'], $pdo)) ? 'fas fa-heart show' : 'far fa-heart';?>"></i>
                 </button>
