@@ -17,8 +17,6 @@ if (!function_exists('redirect')) {
     }
 }
 
-// die(var_dump(file_exists(__DIR__.'/uploaded/'.'2'.'/'.'2-181219:09:47-vanessa2.jpg')));
-
 /**
  * Get the posts form the user id.
  *
@@ -123,20 +121,36 @@ function checkLikedPost($post, $user, $pdo) {
     return $user;
 }
 
+function countPostLikes($post, $pdo) {
+    $statement = $pdo->prepare("SELECT * FROM likes WHERE post_id = :post_id");
+
+    if (!$statement){
+        die(var_dump($pdo->errorInfo()));
+    }
+
+    $statement->bindParam(':post_id', $post, PDO::PARAM_INT);
+
+    $statement->execute();
+    $user = $statement->fetchAll(PDO::FETCH_ASSOC);
+    return count($user);
+}
+
+
+
 function getUser($pdo, int $id) {
 
     $statement = $pdo->prepare("SELECT
                             posts.id,
                             posts.image,
-                            users.id as user_id,
+                            users.id AS user_id,
                             users.username,
                             users.name,
                             users.profile_bio,
                             users.avatar,
                             posts.description,
                             posts.created
-                            from users
-                            left join posts on users.id = posts.user_id
+                            FROM users
+                            LEFT JOIN posts ON users.id = posts.user_id
                             WHERE users.id = :id");
     if (!$statement){
         die(var_dump($pdo->errorInfo()));
@@ -148,6 +162,21 @@ function getUser($pdo, int $id) {
     $user = $statement->fetch(PDO::FETCH_ASSOC);
 
     return $user;
+}
+
+function getInformation(int $id, $pdo){
+    $statement = $pdo->prepare("SELECT COUNT(DISTINCT user_id) FROM likes WHERE post_id = :post_id");
+
+     if (!$statement){
+        die(var_dump($pdo->errorInfo()));
+    }
+
+    $statement->bindParam(':post_id', $id, PDO::PARAM_INT);
+    $statement->execute();
+    $info = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+    return $info;
+
 }
 
 // function checkAvatar($id, $pdo) {

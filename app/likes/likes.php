@@ -21,6 +21,7 @@ if (isset($_POST['post_id'])){
 
         $statement->execute();
         $likes = $statement->fetch(PDO::FETCH_ASSOC);
+
         if ($likes) {
             userDislikesPost($postId, $user, $pdo);
             redirect('/index.php');

@@ -4,12 +4,6 @@ declare(strict_types=1);
 
 require __DIR__.'/../autoload.php';
 
-// In this file we upload a avatar to the user porfile. And get it in the profile
-// die(var_dump(pathinfo($_FILES['avatar']['name'])));
-// print_r(pathinfo($_FILES['avatar']['name']));
-// die(var_dump(redirect('/assets')));
-
-
 // Updating settings for email.
 
 if (isset($_POST['email'], $_POST['password-confirm'])){
