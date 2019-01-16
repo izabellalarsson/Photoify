@@ -37,7 +37,9 @@ Feedback on the project is always welcome. Please [file an issue](https://github
 -   [x] As a user I should be able to like and dislike posts.
 
 ## Tested
-
+* [Per Baltzar](https://github.com/perbaltzar)
+* [Lovisa Hallgren](https://github.com/lovisahallgren)
+* 
 ## License
 
 [MIT](https://github.com/izabellalarsson/FuzzyMemory/blob/master/LICENSE) © [Izabella Larsson](https://github.com/izabellalarsson)
