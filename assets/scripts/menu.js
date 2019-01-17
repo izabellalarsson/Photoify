@@ -18,4 +18,3 @@ if (toggle){
     toggle.classList.remove('active');
   });
 }
-
