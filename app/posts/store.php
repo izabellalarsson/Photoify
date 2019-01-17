@@ -10,7 +10,6 @@ if (isset($_POST['description'], $_FILES['image'])) {
     $description = trim(filter_var($_POST['description'], FILTER_SANITIZE_STRING));
     $image = $_FILES['image'];
 
-
     if ($image['size'] > 2000000){
             $_SESSION['message'] = 'The uploaded file exceeded the file size limit.';
             echo 'too big';

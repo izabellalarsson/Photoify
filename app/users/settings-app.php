@@ -81,16 +81,16 @@ if (isset($_POST['password'], $_POST['email'])){
                 $profileBio = trim(filter_var($_POST['profile_bio'], FILTER_SANITIZE_STRING));
                 $_SESSION['message'] = 'Your bio has been updated';
             }
-            if ($_POST['name'] == ''){
+            // if ($_POST['name'] == ''){
 
-                $name = $_SESSION['user']['name'];
+            //     $name = $_SESSION['user']['name'];
 
-            }
-            else if (filter_var($_POST['name'], FILTER_SANITIZE_STRING)) {
+            // }
+            // else if (filter_var($_POST['name'], FILTER_SANITIZE_STRING)) {
 
-                $name = trim(filter_var($_POST['name'], FILTER_SANITIZE_STRING));
-                $_SESSION['message'] = 'Your name had been updated';
-            }
+            //     $name = trim(filter_var($_POST['name'], FILTER_SANITIZE_STRING));
+            //     $_SESSION['message'] = 'Your name had been updated';
+            // }
 
             if ($_POST['username'] == ''){
 
@@ -133,7 +133,7 @@ if (isset($_POST['password'], $_POST['email'])){
                 $statement->bindParam(':avatar', $avatarName, PDO::PARAM_STR);
             }
             $statement->bindParam(':username', $username, PDO::PARAM_STR);
-            $statement->bindParam(':name', $name, PDO::PARAM_STR);
+            // $statement->bindParam(':name', $name, PDO::PARAM_STR);
             $statement->bindParam(':profile_bio', $profileBio, PDO::PARAM_STR);
             $statement->bindParam(':id', $id, PDO::PARAM_INT);
 
@@ -144,7 +144,7 @@ if (isset($_POST['password'], $_POST['email'])){
             $_SESSION['message'] = 'Your changes has been updated';
             $_SESSION['user']['profile_bio'] = $profileBio;
             $_SESSION['user']['username'] = $changeUsername;
-            $_SESSION['user']['name'] = $name;
+            // $_SESSION['user']['name'] = $name;
             redirect('/settings.php');
             die;
         }else {

@@ -286,6 +286,7 @@ body {
 .posts .header-info .edit-post-button button {
   color: var(--message-color);
   border: 0;
+  background-color: white;
 }
 
 .posts .edit-post,
@@ -359,6 +360,7 @@ body {
   color: #000;
   border: 0;
   cursor: pointer;
+  background-color: white;
   /* font-size: 0.75em; */
 }
 
