@@ -3,11 +3,8 @@ require __DIR__.'/views/header.php';
 
 $allPosts = getAllPosts($pdo);
 
-// $likes = getInformation((int) $post['id'], $pdo);
-
-
-
 ?>
+
 <?php if(isset($_SESSION['user'])) : ?>
 <?php foreach ($allPosts as $post) : ?>
 <article class="posts">

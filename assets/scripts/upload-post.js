@@ -1,4 +1,5 @@
 'use strict';
+
 const uploadBtn = document.querySelector(
   '.profile .profile-bio .edit .upload-btn'
 );

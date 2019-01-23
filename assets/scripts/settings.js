@@ -1,7 +1,5 @@
 'use strict';
 
-// const email = document.querySelector('.email-default');
-
 const email = document.querySelector('.email-default', 'label[for=email]');
 const emailTwo = document.querySelector('.confirm-w-password');
 const emailConfirmButton = document.querySelectorAll(
@@ -35,10 +33,3 @@ if (password) {
     });
   });
 }
-// password.addEventListener('blur', () => {
-//     password.setAttribute('placeholder', 'Current Password');
-//     passwordNew.classList.toggle('show');
-//     passwordConfirmButton.forEach(button => {
-//         button.classList.toggle('show');
-//     });
-// });

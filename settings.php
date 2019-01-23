@@ -5,7 +5,6 @@ if (!isset($_SESSION['user'])) {
     redirect('/');
 }
 
-// die(var_dump($_SESSION['user']['profile_bio']));
 ?>
 
 <article class="settings">

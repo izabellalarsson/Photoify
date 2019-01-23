@@ -6,7 +6,6 @@ if (!isset($_SESSION['user']['id'])){
 }
 $userPosts = getPostsByUser($_SESSION['user']['id'], $pdo);
 
-// die(var_dump('./app/posts/uploaded/'.$_SESSION['user']['id'].'/'.$userPosts));
 ?>
 <article class="profile">
     <section class="profile-avatar">

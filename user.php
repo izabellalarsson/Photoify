@@ -1,6 +1,7 @@
 <?php
 require __DIR__.'/views/header.php';
 
+//make a function for this
 if (isset($_GET['id'])){
     $id = (int) $_GET['id'];
     $getContent = getUser($pdo, $id);
@@ -9,7 +10,7 @@ if (isset($_GET['id'])){
 else {
     redirect('/');
 }
-// die(var_dump('./app/posts/uploaded/'.$_SESSION['user']['id'].'/'.$userPosts));
+
 ?>
 <article class="profile">
     <section class="profile-avatar">

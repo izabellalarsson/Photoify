@@ -16,6 +16,18 @@ if (!function_exists('redirect')) {
         exit;
     }
 }
+/**
+ * Check if user isset
+ *
+ * @param int $id
+ *
+ * @return bool
+ */
+function isLoggedIn($id) : bool
+{
+    //check if user id isset
+}
+
 
 /**
  * Get the posts form the user id.

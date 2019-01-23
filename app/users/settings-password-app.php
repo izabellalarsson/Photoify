@@ -6,7 +6,7 @@ require __DIR__.'/../autoload.php';
 
 // Updating settings for password.
 
-if (isset($_POST['password-old'], $_POST['password-new'])){
+if (isset($_POST['password-old'], $_POST['password-new'])) {
     $passwordOld = $_POST['password-old'];
     $passwordNew = trim(password_hash($_POST['password-new'], PASSWORD_DEFAULT));
     $id = (int) $_SESSION['user']['id'];
@@ -22,7 +22,7 @@ if (isset($_POST['password-old'], $_POST['password-new'])){
     $statement->execute();
     $user = $statement->fetch(PDO::FETCH_ASSOC);
 
-    if (password_verify($passwordOld, $user['password'])){
+    if (password_verify($passwordOld, $user['password'])) {
         if (password_verify($passwordOld, $passwordNew)) {
             $_SESSION['message'] = 'You have to chooese a new password';
             redirect('/settings.php');
@@ -48,7 +48,6 @@ if (isset($_POST['password-old'], $_POST['password-new'])){
             }
         }
     }
-    //if the password dont match
     else {
         $_SESSION['message'] = 'Wrong password';
         redirect('/settings.php');

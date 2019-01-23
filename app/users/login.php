@@ -7,7 +7,7 @@ require __DIR__.'/../autoload.php';
 // In this file we login users.
 
 
-if (isset($_POST['username'], $_POST['password'])){
+if (isset($_POST['username'], $_POST['password'])) {
     $username = trim($_POST['username']);
     $password = trim($_POST['password']);
 
@@ -32,13 +32,14 @@ if (isset($_POST['username'], $_POST['password'])){
             'username' => $user['username'],
             'profile_bio' => $user['profile_bio']
         ];
-        redirect('/index.php');
 
-    }elseif (!$user['username']){
+        redirect('/index.php');
+    }
+    elseif (!$user['username']) {
         $_SESSION['message'] = 'This username does not exist';
         redirect('/login.php');
     }
-    elseif (!password_verify($password, $user['password'])){
+    elseif (!password_verify($password, $user['password'])) {
         $_SESSION['message'] = 'Wrong password';
         redirect('/login.php');
     }

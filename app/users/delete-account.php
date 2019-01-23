@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 require __DIR__.'/../autoload.php';
 
-if (isset($_GET['delete-acc'])){
+if (isset($_GET['delete-acc'])) {
     $id = (int) $_GET['delete-acc'];
 
     $statement = $pdo->prepare("DELETE FROM users WHERE id = :id");
@@ -24,7 +24,7 @@ if (isset($_GET['delete-acc'])){
     redirect('/');
 }
 
-if (isset($_GET['delete-acc-no'])){
+if (isset($_GET['delete-acc-no'])) {
     $_SESSION['message'] = 'No changes has been made';
     redirect('/settings.php');
 

@@ -10,4 +10,5 @@ if (isset($_SESSION['user'])){
 
     redirect('/');
 }
+
 redirect('/');

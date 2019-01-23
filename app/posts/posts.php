@@ -4,8 +4,6 @@ declare(strict_types=1);
 
 require __DIR__.'/../autoload.php';
 
-// unsure if I even use this file
-
 if ($_SESSION['user']['id']) {
   $id = $_SESSION['user']['id'];
   $statement = $pdo->prepare("SELECT * FROM posts WHERE user_id = :user_id");

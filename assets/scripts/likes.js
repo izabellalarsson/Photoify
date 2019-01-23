@@ -6,6 +6,7 @@ const form = [...document.querySelectorAll('.posts .likes form')];
 
 form.forEach(form => {
   form.addEventListener('submit', event => {
+
     const formData = new FormData(form);
     const p = document.querySelector('.posts .likes form p');
     event.preventDefault();
@@ -16,19 +17,6 @@ form.forEach(form => {
       body: formData,
     }).then(response => {});
 
-    // fetch(likes_url, {
-    // }).then((response) => {
-    //     return response.json();
-    //   }).then(data => {
-    //     p.innerHTML = Object.values(data[0])[0];
-    //   })
-
-
-    // fetch(likes_url?post_id=1).then((response) => {
-    //     return response.json();
-    //   }).then(data => {
-    //     p.innerHTML = Object.values(data[0])[0];
-    //   })
   });
 });
 

@@ -8,7 +8,7 @@ require __DIR__.'/../autoload.php';
 
 // Updating settings for avatar, bio, name and username.
 
-if (isset($_POST['password'], $_POST['email'])){
+if (isset($_POST['password'], $_POST['email'])) {
     if ($_POST['email'] == $_SESSION['user']['email']) {
 
         $password = $_POST['password'];
@@ -26,16 +26,13 @@ if (isset($_POST['password'], $_POST['email'])){
         $statement->execute();
         $user = $statement->fetch(PDO::FETCH_ASSOC);
 
-        if (password_verify($password, $user['password'])){
+        if (password_verify($password, $user['password'])) {
             $fileTime = date("ymd");
             $id = (int) $_SESSION['user']['id'];
 
-            // to change the username or name i have to take out
-            // all the information from the database to see so the
-            // account dont alredy exist
             $statement = $pdo->prepare("SELECT * FROM users");
 
-            if (!$statement){
+            if (!$statement) {
                 die(var_dump($pdo->errorInfo()));
             }
 
@@ -43,13 +40,13 @@ if (isset($_POST['password'], $_POST['email'])){
             $userAll = $statement->fetchAll(PDO::FETCH_ASSOC);
 
             for ($i = 0; $i < count($userAll); $i++){
-                if ($userAll[$i]['username'] == $_POST['username']){
+                if ($userAll[$i]['username'] == $_POST['username']) {
                     $username = $_SESSION['user']['username'];
                     $_SESSION['message'] =  'This username alredy exists';
                     redirect('/settings.php');
                     die;
                 }
-                else if (filter_var($_POST['username'], FILTER_SANITIZE_STRING)){
+                else if (filter_var($_POST['username'], FILTER_SANITIZE_STRING)) {
                     $_SESSION['message'] =  'Your username has been updated';
                     $username = trim(filter_var($_POST['username'], FILTER_SANITIZE_STRING));
 
@@ -71,7 +68,7 @@ if (isset($_POST['password'], $_POST['email'])){
                     die;
                 }
             }
-            if ($_POST['profile_bio'] == ''){
+            if ($_POST['profile_bio'] == '') {
 
                 $profileBio = $_SESSION['user']['profile_bio'];
 
@@ -81,16 +78,6 @@ if (isset($_POST['password'], $_POST['email'])){
                 $profileBio = trim(filter_var($_POST['profile_bio'], FILTER_SANITIZE_STRING));
                 $_SESSION['message'] = 'Your bio has been updated';
             }
-            // if ($_POST['name'] == ''){
-
-            //     $name = $_SESSION['user']['name'];
-
-            // }
-            // else if (filter_var($_POST['name'], FILTER_SANITIZE_STRING)) {
-
-            //     $name = trim(filter_var($_POST['name'], FILTER_SANITIZE_STRING));
-            //     $_SESSION['message'] = 'Your name had been updated';
-            // }
 
             if ($_POST['username'] == ''){
 
@@ -108,7 +95,7 @@ if (isset($_POST['password'], $_POST['email'])){
 
             }
 
-            if (!empty($_FILES['avatar']['size'])){
+            if (!empty($_FILES['avatar']['size'])) {
 
                 $avatar = $user['avatar'];
                 $extention = pathinfo($avatar)['extension'];
@@ -147,7 +134,8 @@ if (isset($_POST['password'], $_POST['email'])){
             // $_SESSION['user']['name'] = $name;
             redirect('/settings.php');
             die;
-        }else {
+        }
+        else {
 
         $_SESSION['message'] = 'The password does not match';
         redirect('/settings.php');

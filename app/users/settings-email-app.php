@@ -6,8 +6,8 @@ require __DIR__.'/../autoload.php';
 
 // Updating settings for email.
 
-if (isset($_POST['email'], $_POST['password-confirm'])){
-    if (filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)){
+if (isset($_POST['email'], $_POST['password-confirm'])) {
+    if (filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
         $email = $_POST['email'];
         $password = $_POST['password-confirm'];
         $id = (int) $_SESSION['user']['id'];
@@ -22,7 +22,7 @@ if (isset($_POST['email'], $_POST['password-confirm'])){
         $statement->execute();
         $user = $statement->fetch(PDO::FETCH_ASSOC);
 
-        if (password_verify($password, $user['password'])){
+        if (password_verify($password, $user['password'])) {
             if (isset($_SESSION['user']['id'])) {
 
                 $statement = $pdo->prepare("UPDATE users SET email = :email WHERE id = :id");

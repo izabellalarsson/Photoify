@@ -33,14 +33,4 @@ if (isset($_POST['post_id'])){
     }
 }
 
-
-
-
-
-
-
-    // die(var_dump($likes));
-    // $posts = getAllPosts($pdo);
-    //
-    //     $likes = setLikes($id, $_SESSION['user']['id'], $pdo);
-    // die(var_dump(123));
+redirect('/');
