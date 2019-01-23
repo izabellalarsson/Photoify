@@ -25,7 +25,11 @@ if (!function_exists('redirect')) {
  */
 function isLoggedIn($id) : bool
 {
-    //check if user id isset
+    if (!isset($id)) {
+        return true;
+    }
+    return false;
+
 }
 
 

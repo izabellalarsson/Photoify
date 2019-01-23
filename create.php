@@ -1,5 +1,9 @@
 <?php
 require __DIR__.'/views/header.php';
+
+if (isLoggedIn($_SESSION['user']['id'])) {
+    redirect('/');
+}
 ?>
 
 <div class="bg-start">

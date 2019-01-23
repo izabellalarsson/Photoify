@@ -24,7 +24,7 @@ The assignmet was to build a Instagram-clone called Photoify.
 - Html
 - Css
 - Php 
-- Vanilla Js.
+- Vanilla Js
 
 ## Installation
 

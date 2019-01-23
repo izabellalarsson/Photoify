@@ -1,6 +1,10 @@
 <?php
 require __DIR__.'/views/header.php';
 
+if (isLoggedIn($_SESSION['user']['id'])) {
+    redirect('/');
+}
+
 //make a function for this
 if (isset($_GET['id'])){
     $id = (int) $_GET['id'];
