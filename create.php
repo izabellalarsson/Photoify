@@ -24,4 +24,5 @@ if (isLoggedIn($_SESSION['user']['id'])) {
     <button type="submit" name="button" class="create-start">Create account</button>
     </form>
 </div>
+
 <?php require __DIR__.'/views/footer.php'; ?>

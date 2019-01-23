@@ -35,7 +35,7 @@ $allPosts = getAllPosts($pdo);
         </form>
         <?php endif; ?>
     </section>
-    <img src="<?= './app/posts/uploaded/'.$post['user_id'].'/'.$post['image']; ?>">
+    <img src="./app/posts/uploaded/<?=$post['user_id'].'/'.$post['image']; ?>">
     <article class="information">
         <section class="description">
             <p><a href="">
@@ -76,7 +76,5 @@ $allPosts = getAllPosts($pdo);
     <a class="login-start" href="login.php">Log in</a>
 </div>
 <?php endif; ?>
-
-
 
 <?php require __DIR__.'/views/footer.php'; ?>

@@ -4,12 +4,13 @@ require __DIR__.'/views/header.php';
 if (!isset($_SESSION['user']['id'])){
     redirect('/');
 }
+
 $userPosts = getPostsByUser($_SESSION['user']['id'], $pdo);
 
 ?>
 <article class="profile">
     <section class="profile-avatar">
-        <img src="<?= './app/users/avatar/'.$_SESSION['user']['avatar']?>" alt="" class="avatar-img">
+        <img src="./app/users/avatar/<?= $_SESSION['user']['avatar']; ?>" alt="" class="avatar-img">
     </section>
     <section class="profile-bio">
         <section class="info">

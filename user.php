@@ -63,7 +63,7 @@ else {
 <article class="posts">
     <section class="header-info">
         <section class="avatar-info">
-            <img src="<?= './app/users/avatar/'.$getContent['avatar']; ?>" class="user-avatar">
+            <img src="./app/users/avatar/<?=$getContent['avatar']; ?>" class="user-avatar">
             <form action="<?= '/user.php'; ?>" method="get">
                 <button type="submit" name="id" value="<?= $post['user_id']?>">
                     <?= $getContent['username']; ?></button>
@@ -87,7 +87,7 @@ else {
             <button type="submit" name="delete" value="<?= $post['id']; ?>"><i class="fas fa-trash-alt"></i></button>
         </form>
     </section>
-    <img src="<?= './app/posts/uploaded/'.$getContent['user_id'].'/'.$post['image'] ?>">
+    <img src="./app/posts/uploaded/<?= $getContent['user_id'].'/'.$post['image'] ?>">
     <article class="information">
         <section class="description">
             <p><a href="">
