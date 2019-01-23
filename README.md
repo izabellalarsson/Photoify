@@ -4,7 +4,7 @@
 
 ## Assignment
 
-Our first big porject in PHP. The assignmet was to build a Instagram-clone. Photoify.
+The assignmet was to build a Instagram-clone called Photoify.
 
 ### Expected outcome:
 
