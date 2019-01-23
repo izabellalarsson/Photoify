@@ -10,7 +10,7 @@ $allPosts = getAllPosts($pdo);
 <article class="posts">
     <section class="header-info">
         <section class="avatar-info">
-            <img src="<?= './app/users/avatar/'.$post['avatar']; ?>" class="user-avatar">
+            <img src="./app/users/avatar/<?=$post['avatar']; ?>" class="user-avatar">
             <form action="<?= '/user.php'; ?>" method="get">
                 <button type="submit" name="id" value="<?= $post['user_id']?>">
                     <?= $post['username']; ?></button>
@@ -79,6 +79,4 @@ $allPosts = getAllPosts($pdo);
 
 
 
-<?php
-require __DIR__.'/views/footer.php';
-?>
+<?php require __DIR__.'/views/footer.php'; ?>

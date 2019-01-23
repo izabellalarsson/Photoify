@@ -84,6 +84,4 @@ if (!isset($_SESSION['user'])) {
     </form>
 </article>
 
-<?php
-require __DIR__.'/views/footer.php';
-?>
+<?php require __DIR__.'/views/footer.php'; ?>

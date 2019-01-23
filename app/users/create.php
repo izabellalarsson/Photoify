@@ -18,6 +18,7 @@ if (isset($_POST['email'], $_POST['password'], $_POST['password2'], $_POST['user
 
     }
     else {
+
         $email = trim($_POST['email']);
         $password = trim(password_hash($_POST['password'], PASSWORD_DEFAULT));
         $username = trim($_POST['username']);
@@ -77,7 +78,6 @@ if (isset($_POST['email'], $_POST['password'], $_POST['password2'], $_POST['user
         }
     }
 }
-
 
 redirect('/');
 

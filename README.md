@@ -6,7 +6,7 @@
 
 Our first big porject in PHP. The assignmet was to build a Instagram-clone. Photoify.
 
-### Expected outcome
+### Expected outcome:
 
 -   [x] As a user I should be able to create an account.
 -   [x] As a user I should be able to login.
@@ -20,7 +20,7 @@ Our first big porject in PHP. The assignmet was to build a Instagram-clone. Phot
 
 ## Tech
 
-<b>Built in [Atom](https://atom.io/) with</b>
+<b>Built in [VSCode](https://code.visualstudio.com/) with</b>
 
 -   Html, Css, Php and vanilla Js.
 

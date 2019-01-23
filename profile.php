@@ -98,6 +98,4 @@ $userPosts = getPostsByUser($_SESSION['user']['id'], $pdo);
 </article>
 <?php endforeach; ?>
 
-<?php
-require __DIR__.'/views/footer.php';
-?>
+<?php require __DIR__.'/views/footer.php'; ?>

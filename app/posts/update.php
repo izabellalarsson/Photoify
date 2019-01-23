@@ -38,5 +38,4 @@ if (isset($_POST['description'], $_POST['id'])) {
 }
 
 // updates the description on all. check the delete.php file and change so it will be right
-
 redirect('/');

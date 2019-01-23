@@ -54,4 +54,4 @@ if (isset($_POST['password-old'], $_POST['password-new'])) {
     }
 }
 
-        redirect('/');
+redirect('/');

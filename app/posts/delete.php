@@ -39,8 +39,4 @@ if (isset($_GET['delete'])){
 
 }
 
-
-
-
-
 redirect('/');
