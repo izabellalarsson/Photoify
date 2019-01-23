@@ -21,8 +21,10 @@ The assignmet was to build a Instagram-clone called Photoify.
 ## Tech
 
 <b>Built in [VSCode](https://code.visualstudio.com/) with</b>
-
--   Html, Css, Php and vanilla Js.
+- Html
+- Css
+- Php 
+- Vanilla Js.
 
 ## Installation
 
