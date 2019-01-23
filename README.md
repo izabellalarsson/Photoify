@@ -4,7 +4,19 @@
 
 ## Assignment
 
--   The assignment was to build a instagram-clone. A site build for mobile-first.
+Our first big porject in PHP. The assignmet was to build a Instagram-clone. Photoify.
+
+### Expected outcome
+
+-   [x] As a user I should be able to create an account.
+-   [x] As a user I should be able to login.
+-   [x] As a user I should be able to logout.
+-   [x] As a user I should be able to edit my account email, password and biography.
+-   [x] As a user I should be able to upload a profile avatar image.
+-   [x] As a user I should be able to create new posts with image and description.
+-   [x] As a user I should be able to edit my posts.
+-   [x] As a user I should be able to delete my posts.
+-   [x] As a user I should be able to like and dislike posts.
 
 ## Tech
 
@@ -23,18 +35,6 @@
 ## Feedback
 
 Feedback on the project is always welcome. Please [file an issue](https://github.com/izabellalarsson/Photoify/issues/new) if you find any errors in the code or send a pull request
-
-## Progress
-
--   [x] As a user I should be able to create an account.
--   [x] As a user I should be able to login.
--   [x] As a user I should be able to logout.
--   [x] As a user I should be able to edit my account email, password and biography.
--   [x] As a user I should be able to upload a profile avatar image.
--   [x] As a user I should be able to create new posts with image and description.
--   [x] As a user I should be able to edit my posts.
--   [x] As a user I should be able to delete my posts.
--   [x] As a user I should be able to like and dislike posts.
 
 ## Tested
 * [Per Baltzar](https://github.com/perbaltzar)
