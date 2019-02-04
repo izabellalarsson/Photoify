@@ -4,4 +4,5 @@ finder:
   exclude:
     - node_modules
     - vendor
-name: '*.php'
+  name:
+    - '*.php'
