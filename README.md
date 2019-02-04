@@ -1,6 +1,7 @@
 <img src="https://media.giphy.com/media/On6eOiSKLpPyg/giphy.gif" width="100%" />
 
 # Photoify
+[![StyleCI](https://github.styleci.io/repos/161142909/shield?branch=master)](https://github.styleci.io/repos/161142909)
 
 ## Assignment
 
