@@ -5,14 +5,14 @@ declare(strict_types=1);
 require __DIR__.'/../autoload.php';
 
 
-if (isset($_POST['post_id'])){
-    if (filter_var($_POST['post_id'], FILTER_VALIDATE_INT)){
+if (isset($_POST['post_id'])) {
+    if (filter_var($_POST['post_id'], FILTER_VALIDATE_INT)) {
         $user = $_SESSION['user']['id'];
         $postId = $_POST['post_id'];
 
         $statement = $pdo->prepare("SELECT * FROM likes WHERE user_id = :user_id AND post_id = :post_id");
 
-        if (!$statement){
+        if (!$statement) {
             die(var_dump($pdo->errorInfo()));
         }
 
@@ -25,8 +25,7 @@ if (isset($_POST['post_id'])){
         if ($likes) {
             userDislikesPost($postId, $user, $pdo);
             redirect('/');
-        }
-        else {
+        } else {
             userLikesPost($postId, $user, $pdo);
             redirect('/');
         }

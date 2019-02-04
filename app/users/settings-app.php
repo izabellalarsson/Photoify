@@ -10,14 +10,13 @@ require __DIR__.'/../autoload.php';
 
 if (isset($_POST['password'], $_POST['email'])) {
     if ($_POST['email'] == $_SESSION['user']['email']) {
-
         $password = $_POST['password'];
         $email = trim(filter_var($_POST['email'], FILTER_SANITIZE_EMAIL));
 
         // getting the right user from the database
         $statement = $pdo->prepare("SELECT * FROM users WHERE email = :email");
 
-        if (!$statement){
+        if (!$statement) {
             die(var_dump($pdo->errorInfo()));
         }
 
@@ -39,20 +38,19 @@ if (isset($_POST['password'], $_POST['email'])) {
             $statement->execute();
             $userAll = $statement->fetchAll(PDO::FETCH_ASSOC);
 
-            for ($i = 0; $i < count($userAll); $i++){
+            for ($i = 0; $i < count($userAll); $i++) {
                 if ($userAll[$i]['username'] == $_POST['username']) {
                     $username = $_SESSION['user']['username'];
                     $_SESSION['message'] =  'This username alredy exists';
                     redirect('/settings.php');
                     die;
-                }
-                else if (filter_var($_POST['username'], FILTER_SANITIZE_STRING)) {
+                } elseif (filter_var($_POST['username'], FILTER_SANITIZE_STRING)) {
                     $_SESSION['message'] =  'Your username has been updated';
                     $username = trim(filter_var($_POST['username'], FILTER_SANITIZE_STRING));
 
                     $statement = $pdo->prepare("UPDATE users SET username = :username WHERE id = :id");
 
-                    if (!$statement){
+                    if (!$statement) {
                         die(var_dump($pdo->errorInfo()));
                     }
 
@@ -69,54 +67,37 @@ if (isset($_POST['password'], $_POST['email'])) {
                 }
             }
             if ($_POST['profile_bio'] == '') {
-
                 $profileBio = $_SESSION['user']['profile_bio'];
-
-            }
-            else if (filter_var($_POST['profile_bio'], FILTER_SANITIZE_STRING)) {
-
+            } elseif (filter_var($_POST['profile_bio'], FILTER_SANITIZE_STRING)) {
                 $profileBio = trim(filter_var($_POST['profile_bio'], FILTER_SANITIZE_STRING));
                 $_SESSION['message'] = 'Your bio has been updated';
             }
 
-            if ($_POST['username'] == ''){
-
+            if ($_POST['username'] == '') {
                 $changeUsername = $_SESSION['user']['username'];
-
-            }
-            elseif ($_POST['username'] === $_SESSION['user']['username']) {
-
-                    $_SESSION['message'] = 'This username alredy exists';
-
-            }
-            else {
-
-                    $changeUsername = trim(filter_var($_POST['username'], FILTER_SANITIZE_STRING));
-
+            } elseif ($_POST['username'] === $_SESSION['user']['username']) {
+                $_SESSION['message'] = 'This username alredy exists';
+            } else {
+                $changeUsername = trim(filter_var($_POST['username'], FILTER_SANITIZE_STRING));
             }
 
             if (!empty($_FILES['avatar']['size'])) {
-
                 $avatar = $user['avatar'];
                 $extention = pathinfo($avatar)['extension'];
                 $fileName = pathinfo($avatar)['filename'];
                 $username = $_SESSION['user']['username'];
                 $avatarName = $id.'-'.$username.'.'.$extention;
                 $_SESSION['user']['avatar'] = $avatarName;
-
-            }
-            else {
-
+            } else {
                 $_SESSION['user']['avatar'] = $user['avatar'];
-
             }
 
             $statement = $pdo->prepare("UPDATE users SET avatar = :avatar, profile_bio = :profile_bio, name = :name, username = :username WHERE id = :id");
 
-            if (!$statement){
+            if (!$statement) {
                 die(var_dump($pdo->errorInfo()));
             }
-            if (!empty($_FILES['avatar']['size'])){
+            if (!empty($_FILES['avatar']['size'])) {
                 $statement->bindParam(':avatar', $avatarName, PDO::PARAM_STR);
             }
             $statement->bindParam(':username', $username, PDO::PARAM_STR);
@@ -134,19 +115,13 @@ if (isset($_POST['password'], $_POST['email'])) {
             // $_SESSION['user']['name'] = $name;
             redirect('/settings.php');
             die;
+        } else {
+            $_SESSION['message'] = 'The password does not match';
+            redirect('/settings.php');
         }
-        else {
-
-        $_SESSION['message'] = 'The password does not match';
-        redirect('/settings.php');
-
-        }
-    }
-    else {
-
+    } else {
         $_SESSION['message'] = 'This email does not exist';
         redirect('/settings.php');
-
     }
 }
 redirect('/');

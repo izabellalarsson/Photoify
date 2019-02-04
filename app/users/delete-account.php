@@ -9,9 +9,9 @@ if (isset($_GET['delete-acc'])) {
 
     $statement = $pdo->prepare("DELETE FROM users WHERE id = :id");
 
-        if (!$statement){
-            die(var_dump($pdo->errorInfo()));
-        }
+    if (!$statement) {
+        die(var_dump($pdo->errorInfo()));
+    }
     $statement->bindParam(':id', $id, PDO::PARAM_INT);
     $statement->execute();
     $user = $statement->fetchAll(PDO::FETCH_ASSOC);
@@ -27,5 +27,4 @@ if (isset($_GET['delete-acc'])) {
 if (isset($_GET['delete-acc-no'])) {
     $_SESSION['message'] = 'No changes has been made';
     redirect('/settings.php');
-
 }

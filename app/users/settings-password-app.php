@@ -13,7 +13,7 @@ if (isset($_POST['password-old'], $_POST['password-new'])) {
 
     $statement = $pdo->prepare("SELECT * FROM users WHERE id = :id");
 
-    if (!$statement){
+    if (!$statement) {
         die(var_dump($pdo->errorInfo()));
     }
 
@@ -26,13 +26,11 @@ if (isset($_POST['password-old'], $_POST['password-new'])) {
         if (password_verify($passwordOld, $passwordNew)) {
             $_SESSION['message'] = 'You have to chooese a new password';
             redirect('/settings.php');
-        }
-        else {
+        } else {
             if (isset($_SESSION['user']['id'])) {
-
                 $statement = $pdo->prepare("UPDATE users SET password = :password WHERE id = :id");
 
-                if (!$statement){
+                if (!$statement) {
                     die(var_dump($pdo->errorInfo()));
                 }
 
@@ -47,8 +45,7 @@ if (isset($_POST['password-old'], $_POST['password-new'])) {
                 redirect('/settings.php');
             }
         }
-    }
-    else {
+    } else {
         $_SESSION['message'] = 'Wrong password';
         redirect('/settings.php');
     }

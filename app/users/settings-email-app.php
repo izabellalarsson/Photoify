@@ -14,7 +14,7 @@ if (isset($_POST['email'], $_POST['password-confirm'])) {
 
         $statement = $pdo->prepare("SELECT * FROM users WHERE id = :id");
 
-        if (!$statement){
+        if (!$statement) {
             die(var_dump($pdo->errorInfo()));
         }
         $statement->bindParam(':id', $id, PDO::PARAM_STR);
@@ -24,10 +24,9 @@ if (isset($_POST['email'], $_POST['password-confirm'])) {
 
         if (password_verify($password, $user['password'])) {
             if (isset($_SESSION['user']['id'])) {
-
                 $statement = $pdo->prepare("UPDATE users SET email = :email WHERE id = :id");
 
-                if (!$statement){
+                if (!$statement) {
                     die(var_dump($pdo->errorInfo()));
                 }
 
@@ -41,13 +40,11 @@ if (isset($_POST['email'], $_POST['password-confirm'])) {
                 $_SESSION['user']['email'] = $email;
                 redirect('/settings.php');
             }
-        }
-        else {
+        } else {
             $_SESSION['message'] = 'Wrong password';
             redirect('/settings.php');
         }
-    }
-    else {
+    } else {
         $_SESSION['message'] = 'fill in a new email';
         redirect('/settings.php');
     }

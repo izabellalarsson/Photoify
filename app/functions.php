@@ -29,7 +29,6 @@ function isLoggedIn($id) : bool
         return true;
     }
     return false;
-
 }
 
 
@@ -41,32 +40,32 @@ function isLoggedIn($id) : bool
  * @return $userPost
  */
 
-function getPostsByUser(int $id, $pdo){
-  $fileName = '/uploaded/'.$id;
+function getPostsByUser(int $id, $pdo)
+{
+    $fileName = '/uploaded/'.$id;
 
-  $statement = $pdo->prepare("SELECT * FROM posts WHERE user_id = :user_id ORDER BY created DESC");
+    $statement = $pdo->prepare("SELECT * FROM posts WHERE user_id = :user_id ORDER BY created DESC");
 
-  if (!$statement){
-      die(var_dump($pdo->errorInfo()));
-  }
+    if (!$statement) {
+        die(var_dump($pdo->errorInfo()));
+    }
 
-  $statement->bindParam(':user_id', $id, PDO::PARAM_STR);
+    $statement->bindParam(':user_id', $id, PDO::PARAM_STR);
 
-  $statement->execute();
-  $userPosts = $statement->fetchAll(PDO::FETCH_ASSOC);
+    $statement->execute();
+    $userPosts = $statement->fetchAll(PDO::FETCH_ASSOC);
 
-    for ($i = 0; $i < count($userPosts); ++$i){
+    for ($i = 0; $i < count($userPosts); ++$i) {
         if (file_exists($fileName.'/'.$userPosts[$i]['image'])) {
-
             return $userPosts[$i]['image'];
-
         }
     }
     return $userPosts;
 }
 
 
-function getAllPosts($pdo){
+function getAllPosts($pdo)
+{
     $statement = $pdo->query("SELECT
                             posts.id,
                             posts.image,
@@ -78,7 +77,7 @@ function getAllPosts($pdo){
                             from posts
                             join users on posts.user_id = users.id
                             ORDER BY created DESC");
-    if (!$statement){
+    if (!$statement) {
         die(var_dump($pdo->errorInfo()));
     }
 
@@ -89,12 +88,12 @@ function getAllPosts($pdo){
 }
 
 
-function userLikesPost($post, $user, $pdo) {
-
+function userLikesPost($post, $user, $pdo)
+{
     $statement = $pdo->prepare("INSERT INTO likes(user_id, post_id)
                                 VALUES(:user_id, :post_id)");
 
-    if (!$statement){
+    if (!$statement) {
         die(var_dump($pdo->errorInfo()));
     }
 
@@ -106,12 +105,13 @@ function userLikesPost($post, $user, $pdo) {
     $likes = $statement->fetch(PDO::FETCH_ASSOC);
 }
 
-function userDislikesPost($post, $user, $pdo){
+function userDislikesPost($post, $user, $pdo)
+{
     $statement = $pdo->prepare("DELETE FROM likes
                                 WHERE user_id = :user_id
                                 AND post_id = :post_id");
 
-    if (!$statement){
+    if (!$statement) {
         die(var_dump($pdo->errorInfo()));
     }
 
@@ -120,13 +120,13 @@ function userDislikesPost($post, $user, $pdo){
 
     $statement->execute();
     $user = $statement->fetch(PDO::FETCH_ASSOC);
-
 }
 
-function checkLikedPost($post, $user, $pdo) {
+function checkLikedPost($post, $user, $pdo)
+{
     $statement = $pdo->prepare("SELECT * FROM likes WHERE user_id = :user_id AND post_id = :post_id");
 
-    if (!$statement){
+    if (!$statement) {
         die(var_dump($pdo->errorInfo()));
     }
 
@@ -139,10 +139,11 @@ function checkLikedPost($post, $user, $pdo) {
     return $user;
 }
 
-function countPostLikes($post, $pdo) {
+function countPostLikes($post, $pdo)
+{
     $statement = $pdo->prepare("SELECT * FROM likes WHERE post_id = :post_id");
 
-    if (!$statement){
+    if (!$statement) {
         die(var_dump($pdo->errorInfo()));
     }
 
@@ -155,8 +156,8 @@ function countPostLikes($post, $pdo) {
 
 
 
-function getUser($pdo, int $id) {
-
+function getUser($pdo, int $id)
+{
     $statement = $pdo->prepare("SELECT
                             posts.id,
                             posts.image,
@@ -170,7 +171,7 @@ function getUser($pdo, int $id) {
                             FROM users
                             LEFT JOIN posts ON users.id = posts.user_id
                             WHERE users.id = :id");
-    if (!$statement){
+    if (!$statement) {
         die(var_dump($pdo->errorInfo()));
     }
 
@@ -182,12 +183,13 @@ function getUser($pdo, int $id) {
     return $user;
 }
 
-function getInformation(int $id, $pdo){
+function getInformation(int $id, $pdo)
+{
     $statement = $pdo->prepare("SELECT COUNT(*)
                                 FROM likes
                                 WHERE post_id = :post_id");
 
-     if (!$statement){
+    if (!$statement) {
         die(var_dump($pdo->errorInfo()));
     }
 

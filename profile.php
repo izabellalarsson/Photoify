@@ -1,7 +1,7 @@
 <?php
 require __DIR__.'/views/header.php';
 
-if (!isset($_SESSION['user']['id'])){
+if (!isset($_SESSION['user']['id'])) {
     redirect('/');
 }
 
@@ -87,7 +87,7 @@ $userPosts = getPostsByUser($_SESSION['user']['id'], $pdo);
             <form class="like" action="./../app/likes/likes.php" method="post">
                 <input type="hidden" name="post_id" value="<?= $post['id'] ?>">
                 <p>
-                    <?= (countPostLikes($post['id'], $pdo ) > 0) ? countPostLikes($post['id'], $pdo) : ''; ?>
+                    <?= (countPostLikes($post['id'], $pdo) > 0) ? countPostLikes($post['id'], $pdo) : ''; ?>
                 </p>
                 <button type="submit" name="likes">
                     <i class="<?= (checkLikedPost($post['id'], $_SESSION['user']['id'], $pdo)) ? 'fas fa-heart show' : 'far fa-heart';?>"></i>

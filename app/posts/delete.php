@@ -6,19 +6,19 @@ require __DIR__.'/../autoload.php';
 
 // In this file we delete new posts in the database.
 
-if (isset($_GET['delete'])){
+if (isset($_GET['delete'])) {
     $post_id = $_GET['delete'];
     $user_id = (int) $_SESSION['user']['id'];
     $userFolder = $user_id;
     $userPosts = getPostsByUser($user_id, $pdo);
     $redirect = $_GET['page'];
 
-    foreach ($userPosts as $userPost){
-        if ($post_id == $userPost['id']){
+    foreach ($userPosts as $userPost) {
+        if ($post_id == $userPost['id']) {
             $imageName = $userPost['image'];
             $statement = $pdo->prepare("DELETE FROM posts WHERE id = :id AND image = :image");
 
-            if (!$statement){
+            if (!$statement) {
                 die(var_dump($pdo->errorInfo()));
             }
 
@@ -33,10 +33,8 @@ if (isset($_GET['delete'])){
 
             $_SESSION['message'] = 'Your post has been deleted';
             redirect($redirect);
-
         }
     }
-
 }
 
 redirect('/');

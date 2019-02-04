@@ -5,7 +5,6 @@ declare(strict_types=1);
 require __DIR__.'/../autoload.php';
 
 if (isset($_POST['description'], $_POST['id'])) {
-
     $post_id = $_POST['id'];
     $description = trim(filter_var($_POST['description'], FILTER_SANITIZE_STRING));
     $user_id = (int) $_SESSION['user']['id'];
@@ -15,10 +14,9 @@ if (isset($_POST['description'], $_POST['id'])) {
 
     foreach ($userPosts as $userPost) {
         if (filter_var($description, FILTER_SANITIZE_STRING)) {
-
             $statement = $pdo->prepare("UPDATE posts SET description = :description WHERE id = :id");
 
-            if (!$statement){
+            if (!$statement) {
                 die(var_dump($pdo->errorInfo()));
             }
 

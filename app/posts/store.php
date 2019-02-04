@@ -7,25 +7,17 @@ require __DIR__.'/../autoload.php';
 // In this file we store/insert new posts in the database.
 
 if (isset($_POST['description'], $_FILES['image'])) {
-
     $description = trim(filter_var($_POST['description'], FILTER_SANITIZE_STRING));
     $image = $_FILES['image'];
 
     if ($image['size'] > 2000000) {
-
         $_SESSION['message'] = 'The uploaded file exceeded the file size limit.';
         echo 'too big';
-    }
-
-    elseif ($image['type'] != 'image/jpeg') {
-
+    } elseif ($image['type'] != 'image/jpeg') {
         $_SESSION['message'] = 'The image file type is not allowed.';
         echo 'wrong type';
-    }
-    elseif (filter_var($image['name'], FILTER_SANITIZE_STRING)) {
-
+    } elseif (filter_var($image['name'], FILTER_SANITIZE_STRING)) {
         if (isset($_SESSION['user']['id'])) {
-
             $id = (int) $_SESSION['user']['id'];
             $extention = pathinfo($image['name'])['extension'];
             $fileName = pathinfo($image['name'])['filename'];
@@ -36,7 +28,7 @@ if (isset($_POST['description'], $_FILES['image'])) {
 
             $statement = $pdo->prepare("INSERT INTO posts(image, description, user_id) VALUES(:image, :description, :user_id)");
 
-            if (!$statement){
+            if (!$statement) {
                 die(var_dump($pdo->errorInfo()));
             }
 
@@ -57,10 +49,8 @@ if (isset($_POST['description'], $_FILES['image'])) {
             redirect('/profile.php');
             die;
         }
-
     }
-}
-elseif (!isset($_POST['description'], $_FILES['image'])) {
+} elseif (!isset($_POST['description'], $_FILES['image'])) {
     redirect('/profile.php');
 }
 

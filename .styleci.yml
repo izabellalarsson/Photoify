@@ -1,0 +1,7 @@
+present: psr2
+risky: false
+finder:
+  exclude:
+    - node_modules
+    - vendor
+name: '*.php'
